@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>来盘昆特牌吧</title>
+  <link rel="stylesheet" href="styles.css?v=aiwin-20260702a" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">巫师三 · 昆特牌</p>
+      <h1>来盘昆特牌吧</h1>
+      <p class="subtitle">选阵营、配卡组，支持本地双人热座与系统对战。核心规则已按《巫师3》昆特牌整理并实现。</p>
+    </div>
+    <nav class="toplinks">
+      <a href="gwent_cards.md" target="_blank">卡牌资料</a>
+      <a href="gwent_cards.json" target="_blank">JSON 数据</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="loader" class="panel center">正在加载卡牌数据...</section>
+
+    <section id="setup" class="setup hidden">
+      <div class="panel intro-grid">
+        <div>
+          <h2>1. 选择模式</h2>
+          <div class="mode-row">
+            <label class="radio-card"><input type="radio" name="mode" value="ai" checked /> 玩家对战系统</label>
+            <label class="radio-card"><input type="radio" name="mode" value="hotseat" /> 双方本地对战</label>
+          </div>
+          <p class="hint">系统对战会自动选阵营和组牌；本地对战会隐藏非当前玩家手牌，适合两个人轮流操作。</p>
+        </div>
+        <div class="rules-mini" id="rulesMini"></div>
+      </div>
+
+      <div class="panel match-history-panel">
+        <div class="section-head">
+          <h2>战绩查看</h2>
+          <button id="clearHistoryBtn" type="button">清空战绩</button>
+        </div>
+        <div id="historyStats" class="history-stats"></div>
+        <div id="historyList" class="history-list"></div>
+      </div>
+
+      <div id="playerSetups" class="player-setups"></div>
+
+      <div class="panel setup-actions">
+        <button id="startGame" class="primary">开始对战</button>
+        <button id="randomizeAll">随机阵营并自动组牌</button>
+        <span id="setupStatus" class="status-text"></span>
+      </div>
+
+      <div class="panel card-browser">
+        <div class="section-head">
+          <h2>卡牌资料浏览</h2>
+          <div class="filters">
+            <select id="browserFaction"></select>
+            <input id="browserSearch" placeholder="搜索卡牌名 / 能力 / 获取地点" />
+          </div>
+        </div>
+        <div id="browserStats" class="stats"></div>
+        <div id="browserCards" class="browser-grid"></div>
+      </div>
+    </section>
+
+    <section id="game" class="game hidden">
+      <aside class="game-side panel">
+        <div class="side-head">
+          <p class="eyebrow">第 <span id="roundNo">1</span> / 3 回合</p>
+          <h2 id="turnTitle">等待开始</h2>
+          <p id="weatherLine" class="hint"></p>
+          <div id="matchStatus" class="match-status hidden"></div>
+        </div>
+        <div class="score-strip" id="scoreStrip"></div>
+        <div class="game-actions">
+          <button id="leaderBtn">使用领袖</button>
+          <button id="passBtn" class="danger">放弃本回合</button>
+          <button id="quickRestartBtn" class="hidden">再来一局</button>
+          <button id="restartBtn">返回配置</button>
+        </div>
+      </aside>
+
+      <div class="game-main">
+        <div id="actionGuide" class="action-guide hidden"></div>
+        <div id="placementBanner" class="placement-banner hidden"></div>
+        <div id="mulliganBanner" class="mulligan-banner hidden"></div>
+        <div id="reviveBanner" class="revive-banner hidden"></div>
+
+        <div id="board" class="board"></div>
+
+        <div class="panel hand-panel">
+          <div class="section-head hand-head">
+            <h2 id="handTitle">当前玩家手牌</h2>
+            <div class="hand-tools">
+              <span id="handHint" class="hint"></span>
+              <button id="autoPlayBtn" class="assist-button hidden" type="button">自动出一张</button>
+            </div>
+          </div>
+          <div id="hand" class="hand"></div>
+        </div>
+
+        <div class="panel log-panel">
+          <div class="section-head"><h2>战报</h2><button id="clearLog">清空战报</button></div>
+          <ol id="log"></ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="feedbackToast" class="feedback-toast hidden" role="status" aria-live="polite"></div>
+
+  <div id="cardModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-backdrop" data-close-card-modal></div>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close-card-modal>关闭</button>
+      <div id="modalContent"></div>
+    </article>
+  </div>
+
+  <template id="playerSetupTpl">
+    <div class="panel player-config">
+      <div class="section-head">
+        <h2 class="player-title"></h2>
+        <span class="deck-summary"></span>
+      </div>
+      <div class="config-row">
+        <label>阵营 <select class="faction-select"></select></label>
+        <label>领袖 <select class="leader-select"></select></label>
+        <button class="auto-deck">自动组牌</button>
+        <button class="clear-deck">清空</button>
+      </div>
+      <div class="leader-desc hint"></div>
+      <div class="deck-builder"></div>
+    </div>
+  </template>
+
+  <script src="app.js?v=aiwin-20260702a"></script>
+</body>
+</html>

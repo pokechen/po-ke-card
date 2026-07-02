@@ -1,0 +1,6099 @@
+{
+  "title": "来盘破壳牌吧 · 历史人物主题卡牌数据",
+  "generatedAt": "2026-07-01T12:05:00+08:00",
+  "version": "pohu-core-v0.1",
+  "note": "首批原创历史人物主题数据。为方便接入现有引擎，faction 暂沿用旧引擎键，row 暂沿用 melee/ranged/siege；实际显示建议使用 factionDisplayName、rowDisplayName 与 metadata 中的新术语。未使用《巫师3》角色、卡面、阵营或世界观。",
+  "copyrightSafety": {
+    "usesWitcherIp": false,
+    "usesExternalImages": false,
+    "artPolicy": "当前 imageUrl 均为空；上线前建议使用原创印章/器物/纹样卡面或确认可商用素材。",
+    "namingPolicy": "对外文案避免使用“昆特牌”“Gwent”“巫师三”“复刻”等表达。"
+  },
+  "metadata": {
+    "factions": {
+      "Northern Realms": {
+        "displayName": "开国群雄",
+        "theme": "创业、开疆、将相合力",
+        "perkName": "乘胜追策",
+        "perkText": "赢得一个回合后抽 1 张牌。",
+        "originalEngineRole": "Northern Realms"
+      },
+      "Nilfgaardian Empire": {
+        "displayName": "纵横权谋",
+        "theme": "谋略、外交、制衡与奇策",
+        "perkName": "庙算先机",
+        "perkText": "平局时视为本派获胜；双方同派时仍为平局。",
+        "originalEngineRole": "Nilfgaardian Empire"
+      },
+      "Scoia'tael": {
+        "displayName": "百家争鸣",
+        "theme": "思想、学派、改革与文化影响",
+        "perkName": "先声夺人",
+        "perkText": "可以决定先手；当前引擎中体现为该派默认先手。",
+        "originalEngineRole": "Scoia'tael"
+      },
+      "Monsters": {
+        "displayName": "草莽星火",
+        "theme": "义军、豪杰、民间号召与不灭火种",
+        "perkName": "星火不灭",
+        "perkText": "每回合结束后随机保留 1 张非出使单位到下一回合。",
+        "originalEngineRole": "Monsters"
+      },
+      "Skellige": {
+        "displayName": "遗策复兴",
+        "theme": "史家、医家、科技、制度遗产与后发复兴",
+        "perkName": "遗策再起",
+        "perkText": "第 3 回合开始时从弃牌堆随机复起 2 张非传世单位。",
+        "originalEngineRole": "Skellige"
+      },
+      "Neutral": {
+        "displayName": "天下共识",
+        "theme": "跨派人物、时局牌与通用谋略牌",
+        "perkName": "",
+        "perkText": "可被任意牌组使用。",
+        "originalEngineRole": "Neutral"
+      }
+    },
+    "rows": {
+      "melee": {
+        "displayName": "疆场",
+        "theme": "军事、征伐、守土、武功"
+      },
+      "ranged": {
+        "displayName": "朝堂",
+        "theme": "政治、外交、谋略、制度"
+      },
+      "siege": {
+        "displayName": "文脉",
+        "theme": "思想、科技、文化、医学、工程"
+      }
+    },
+    "abilities": {
+      "Hero": {
+        "displayName": "传世",
+        "text": "不受时局、谋略牌和大多数能力影响。"
+      },
+      "Spy": {
+        "displayName": "出使",
+        "text": "打到对方阵线上并计入对方分数，自己抽 2 张牌。"
+      },
+      "Medic": {
+        "displayName": "济世",
+        "text": "从己方弃牌堆复起 1 张非传世单位。"
+      },
+      "Tight Bond": {
+        "displayName": "同盟",
+        "text": "同名同能力人物在同一线时按数量倍增。"
+      },
+      "Morale Boost": {
+        "displayName": "振势",
+        "text": "同一线其它非传世人物 +1。"
+      },
+      "Muster": {
+        "displayName": "集贤",
+        "text": "打出后召集牌组或手牌中的同名人物。"
+      },
+      "Agile": {
+        "displayName": "通才",
+        "text": "可以选择进入两条不同阵线。"
+      },
+      "Scorch": {
+        "displayName": "奇策",
+        "text": "摧毁满足条件的最高战力非传世人物。"
+      },
+      "Commander's Horn": {
+        "displayName": "号令",
+        "text": "指定己方一条阵线，使该线战力翻倍。"
+      },
+      "Berserker": {
+        "displayName": "奋起",
+        "text": "可被“破釜沉舟”触发，转化为更高战力。"
+      },
+      "Mardroeme": {
+        "displayName": "破釜",
+        "text": "触发奋起单位转化。"
+      }
+    },
+    "expansions": {
+      "Pohu Core": "破壳牌 · 基础人物包",
+      "Pohu Event": "破壳牌 · 时局谋略包"
+    },
+    "engineCompatibility": {
+      "factionKeys": "保留旧引擎 faction key 以便现有筛选、组牌、阵营被动逻辑迁移。",
+      "rowKeys": "保留 melee/ranged/siege，但建议界面显示为 疆场/朝堂/文脉。",
+      "effectKey": "时局/谋略牌提供 effectKey，用于后续替换硬编码的 Biting Frost、Scorch 等判断。",
+      "abilities": "abilities 保留旧引擎能力 key；abilityDisplayNames 提供破壳牌中文名。"
+    }
+  },
+  "rules": {
+    "deckBuilding": "每名玩家选择一个流派和一名主将；卡组由本流派人物牌、天下共识牌、时局/谋略牌组成。建议至少 22 张人物牌，谋略/时局牌最多 10 张。",
+    "match": "三局两胜；开局抽 10 张；玩家轮流打出一张牌或放弃当前局；双方都放弃后按三线总影响力结算。",
+    "rows": "三线为：疆场、朝堂、文脉。人物只能进入允许的阵线，通才人物可选择其一。",
+    "situation": "时局牌压制对应阵线，使双方该线非传世人物影响力降为 1；拨云见日清除全部时局。",
+    "commonAbilities": {
+      "Hero": "不受时局、谋略牌和大多数能力影响。",
+      "Spy": "打到对方阵线上并计入对方分数，自己抽 2 张牌。",
+      "Medic": "从己方弃牌堆复起 1 张非传世单位。",
+      "Tight Bond": "同名同能力人物在同一线时按数量倍增。",
+      "Morale Boost": "同一线其它非传世人物 +1。",
+      "Muster": "打出后召集牌组或手牌中的同名人物。",
+      "Agile": "可以选择进入两条不同阵线。",
+      "Scorch": "摧毁满足条件的最高战力非传世人物。",
+      "Commander's Horn": "指定己方一条阵线，使该线战力翻倍。",
+      "Berserker": "可被“破釜沉舟”触发，转化为更高战力。",
+      "Mardroeme": "触发奋起单位转化。"
+    },
+    "factionPerks": {
+      "开国群雄": "乘胜追策：赢得一个回合后抽 1 张牌。",
+      "纵横权谋": "庙算先机：平局时视为本派获胜；双方同派时仍为平局。",
+      "百家争鸣": "先声夺人：可以决定先手；当前引擎中体现为该派默认先手。",
+      "草莽星火": "星火不灭：每回合结束后随机保留 1 张非出使单位到下一回合。",
+      "遗策复兴": "遗策再起：第 3 回合开始时从弃牌堆随机复起 2 张非传世单位。"
+    }
+  },
+  "summary": {
+    "totalCardCopies": 199,
+    "uniqueBaseCards": 150,
+    "byFaction": {
+      "Northern Realms": 30,
+      "Nilfgaardian Empire": 35,
+      "Scoia'tael": 33,
+      "Monsters": 32,
+      "Skellige": 34,
+      "Neutral": 35
+    },
+    "byThemeFaction": {
+      "开国群雄": 30,
+      "纵横权谋": 35,
+      "百家争鸣": 33,
+      "草莽星火": 32,
+      "遗策复兴": 34,
+      "天下共识": 35
+    },
+    "byCategory": {
+      "leader": 20,
+      "hero": 16,
+      "unit": 138,
+      "weather": 14,
+      "special": 11
+    },
+    "byAbility": {
+      "Hero": 17,
+      "Commander's Horn": 8,
+      "Scorch": 24,
+      "Medic": 11,
+      "Morale Boost": 25,
+      "Agile": 31,
+      "Tight Bond": 34,
+      "Spy": 15,
+      "Muster": 20,
+      "Berserker": 3,
+      "Mardroeme": 2
+    },
+    "unitOrHeroCopiesByFaction": {
+      "Northern Realms": 26,
+      "Nilfgaardian Empire": 31,
+      "Scoia'tael": 29,
+      "Monsters": 28,
+      "Skellige": 30,
+      "Neutral": 10
+    },
+    "leaderCopiesByFaction": {
+      "Northern Realms": 4,
+      "Nilfgaardian Empire": 4,
+      "Scoia'tael": 4,
+      "Monsters": 4,
+      "Skellige": 4
+    }
+  },
+  "tokens": [],
+  "cards": [
+    {
+      "id": "pohu-0001",
+      "name": "刘邦：知人善任",
+      "baseName": "刘邦：知人善任",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "开局多抽 1 张，体现善用人才。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "draw an extra card at the beginning of the battle."
+    },
+    {
+      "id": "pohu-0002",
+      "name": "李世民：贞观之治",
+      "baseName": "李世民：贞观之治",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "清除全部时局，稳定全局。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Clear any weather effects in play."
+    },
+    {
+      "id": "pohu-0003",
+      "name": "嬴政：六合一统",
+      "baseName": "嬴政：六合一统",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "己方文脉线翻倍，体现制度与工程整合。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Commanders Horn siege double."
+    },
+    {
+      "id": "pohu-0004",
+      "name": "赵匡胤：杯酒释兵权",
+      "baseName": "赵匡胤：杯酒释兵权",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "压制对方疆场最强人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Destroy your enemy strongest melee unit if combined strength is 10 or more."
+    },
+    {
+      "id": "pohu-0005",
+      "name": "管仲：九合诸侯",
+      "baseName": "管仲：九合诸侯",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "以制度与外交补充资源。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "draw an extra card at the beginning of the battle."
+    },
+    {
+      "id": "pohu-0006",
+      "name": "张仪：连横破局",
+      "baseName": "张仪：连横破局",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "窥探对方手牌，掌握局势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Look at 3 random cards from your opponent hand."
+    },
+    {
+      "id": "pohu-0007",
+      "name": "曹操：挟天子以令诸侯",
+      "baseName": "曹操：挟天子以令诸侯",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "己方朝堂线翻倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Commanders Horn ranged double."
+    },
+    {
+      "id": "pohu-0008",
+      "name": "司马懿：隐忍待机",
+      "baseName": "司马懿：隐忍待机",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "抵消对方领袖效果。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Cancel your opponent Leader Ability."
+    },
+    {
+      "id": "pohu-0009",
+      "name": "孔子：有教无类",
+      "baseName": "孔子：有教无类",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "开局多抽 1 张，体现门生广布。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Draw an extra card at the beginning of the battle."
+    },
+    {
+      "id": "pohu-0010",
+      "name": "老子：以柔克刚",
+      "baseName": "老子：以柔克刚",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "触发“边患四起”，压低疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Pick a Biting Frost card from your deck and play it instantly."
+    },
+    {
+      "id": "pohu-0011",
+      "name": "墨子：兼爱非攻",
+      "baseName": "墨子：兼爱非攻",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "清除时局影响。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Clear any weather effects in play."
+    },
+    {
+      "id": "pohu-0012",
+      "name": "韩非：法术势",
+      "baseName": "韩非：法术势",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "以法制奇策制衡强者。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Destroy your enemy strongest close combat units if combined strength is 10 or more."
+    },
+    {
+      "id": "pohu-0013",
+      "name": "项羽：破釜沉舟",
+      "baseName": "项羽：破釜沉舟",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "己方疆场线翻倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Commanders Horn melee double."
+    },
+    {
+      "id": "pohu-0014",
+      "name": "刘秀：昆阳再起",
+      "baseName": "刘秀：昆阳再起",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "从弃牌堆取回 1 张人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Restore a card from your discard pile to your hand."
+    },
+    {
+      "id": "pohu-0015",
+      "name": "陈胜：王侯将相",
+      "baseName": "陈胜：王侯将相",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "触发任意时局，搅动大势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Pick any weather card from your deck and play it instantly."
+    },
+    {
+      "id": "pohu-0016",
+      "name": "黄巢：满城风雨",
+      "baseName": "黄巢：满城风雨",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "压制对方朝堂线。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Destroy your enemy strongest ranged units if combined strength is 10 or more."
+    },
+    {
+      "id": "pohu-0017",
+      "name": "司马迁：史家绝唱",
+      "baseName": "司马迁：史家绝唱",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "双方弃牌洗回牌库。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Shuffle all cards from each player graveyard back into their decks."
+    },
+    {
+      "id": "pohu-0018",
+      "name": "张居正：万历新政",
+      "baseName": "张居正：万历新政",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "己方朝堂线翻倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Commanders Horn ranged double."
+    },
+    {
+      "id": "pohu-0019",
+      "name": "李时珍：本草济世",
+      "baseName": "李时珍：本草济世",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "清除时局，保护人物发挥。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Clear any weather effects in play."
+    },
+    {
+      "id": "pohu-0020",
+      "name": "郑和：七下西洋",
+      "baseName": "郑和：七下西洋",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "leader",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "普通人物：提供基础影响力。",
+      "pohuDesignNote": "出使远航，窥探对方手牌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "leaderAbility": "Look at 3 random cards from your opponent hand."
+    },
+    {
+      "id": "pohu-0021",
+      "name": "秦始皇",
+      "baseName": "秦始皇",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "hero",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 10,
+      "abilities": [
+        "Hero"
+      ],
+      "abilityDisplayNames": [
+        "传世"
+      ],
+      "abilityText": "传世",
+      "pohuDesignNote": "一统制度，影响力不受一时局势动摇。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0022",
+      "name": "刘邦",
+      "baseName": "刘邦",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 8,
+      "abilities": [
+        "Commander's Horn"
+      ],
+      "abilityDisplayNames": [
+        "号令"
+      ],
+      "abilityText": "号令",
+      "pohuDesignNote": "善用人才，适合作为朝堂号令。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0023",
+      "name": "韩信",
+      "baseName": "韩信",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 10,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "兵仙奇谋，适合克制最高战力。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0024",
+      "name": "张良",
+      "baseName": "张良",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 7,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "运筹帷幄，以奇策破局。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0025",
+      "name": "萧何",
+      "baseName": "萧何",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 5,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "后勤定国，能复起弃牌人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0026",
+      "name": "霍去病",
+      "baseName": "霍去病",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "hero",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 10,
+      "abilities": [
+        "Hero"
+      ],
+      "abilityDisplayNames": [
+        "传世"
+      ],
+      "abilityText": "传世",
+      "pohuDesignNote": "封狼居胥，疆场传世。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0027",
+      "name": "卫青",
+      "baseName": "卫青",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 8,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "稳健主帅，振奋同线人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0028",
+      "name": "李世民",
+      "baseName": "李世民",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "hero",
+      "row": [
+        "melee",
+        "ranged"
+      ],
+      "rowDisplayName": "疆场 / 朝堂",
+      "strength": 10,
+      "abilities": [
+        "Hero",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "传世",
+        "通才"
+      ],
+      "abilityText": "传世、通才",
+      "pohuDesignNote": "兼具武功与治世，通行疆场与朝堂。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0029",
+      "name": "魏征",
+      "baseName": "魏征",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 5,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "直谏之臣，提升朝堂士气。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0030",
+      "name": "贞观宰辅",
+      "baseName": "贞观宰辅",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "房玄龄、杜如晦等合力，同盟加成。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0031",
+      "name": "贞观宰辅",
+      "baseName": "贞观宰辅",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "房玄龄、杜如晦等合力，同盟加成。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0032",
+      "name": "凌烟武将",
+      "baseName": "凌烟武将",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "功臣群像，同线同盟加成。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0033",
+      "name": "凌烟武将",
+      "baseName": "凌烟武将",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "功臣群像，同线同盟加成。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0034",
+      "name": "郭子仪",
+      "baseName": "郭子仪",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 8,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "再造唐室，稳定疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0035",
+      "name": "李靖",
+      "baseName": "李靖",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 8,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "名将奇兵，能破强敌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0036",
+      "name": "岳飞",
+      "baseName": "岳飞",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "hero",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 10,
+      "abilities": [
+        "Hero",
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "传世",
+        "振势"
+      ],
+      "abilityText": "传世、振势",
+      "pohuDesignNote": "精忠报国，传世且振势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0037",
+      "name": "戚继光",
+      "baseName": "戚继光",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 8,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "练兵抗倭，强化疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0038",
+      "name": "戚家军",
+      "baseName": "戚家军",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "军纪严整，同盟越多越强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0039",
+      "name": "戚家军",
+      "baseName": "戚家军",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "军纪严整，同盟越多越强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0040",
+      "name": "戚家军",
+      "baseName": "戚家军",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "军纪严整，同盟越多越强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0041",
+      "name": "于谦",
+      "baseName": "于谦",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 6,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "守社稷于危局，朝堂振势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0042",
+      "name": "郑成功",
+      "baseName": "郑成功",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee",
+        "ranged"
+      ],
+      "rowDisplayName": "疆场 / 朝堂",
+      "strength": 7,
+      "abilities": [
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "通才"
+      ],
+      "abilityText": "通才",
+      "pohuDesignNote": "海疆与政略兼具。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0043",
+      "name": "赵匡胤",
+      "baseName": "赵匡胤",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "ranged",
+        "melee"
+      ],
+      "rowDisplayName": "朝堂 / 疆场",
+      "strength": 8,
+      "abilities": [
+        "Commander's Horn",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "号令",
+        "通才"
+      ],
+      "abilityText": "号令、通才",
+      "pohuDesignNote": "开宋定局，可朝堂号令。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0044",
+      "name": "大秦锐士",
+      "baseName": "大秦锐士",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "开疆劲旅，同线集群强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0045",
+      "name": "大秦锐士",
+      "baseName": "大秦锐士",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "开疆劲旅，同线集群强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0046",
+      "name": "大秦锐士",
+      "baseName": "大秦锐士",
+      "faction": "Northern Realms",
+      "factionDisplayName": "开国群雄",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "开疆劲旅，同线集群强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0047",
+      "name": "苏秦",
+      "baseName": "苏秦",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 4,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "合纵游说，出使换取资源。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0048",
+      "name": "张仪",
+      "baseName": "张仪",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 5,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "连横之术，适合出使机制。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0049",
+      "name": "范雎",
+      "baseName": "范雎",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 6,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "远交近攻，以奇策破强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0050",
+      "name": "范蠡",
+      "baseName": "范蠡",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged",
+        "siege"
+      ],
+      "rowDisplayName": "朝堂 / 文脉",
+      "strength": 7,
+      "abilities": [
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "通才"
+      ],
+      "abilityText": "通才",
+      "pohuDesignNote": "政商皆通，横跨朝堂与文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0051",
+      "name": "吕不韦",
+      "baseName": "吕不韦",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 6,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "奇货可居，资源转换。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0052",
+      "name": "李斯",
+      "baseName": "李斯",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 7,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "制度与权术并用。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0053",
+      "name": "陈平",
+      "baseName": "陈平",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 5,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "六出奇计。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0054",
+      "name": "贾诩",
+      "baseName": "贾诩",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 6,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "乱世毒士，专破强势牌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0055",
+      "name": "曹操",
+      "baseName": "曹操",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "hero",
+      "row": [
+        "ranged",
+        "melee"
+      ],
+      "rowDisplayName": "朝堂 / 疆场",
+      "strength": 10,
+      "abilities": [
+        "Hero",
+        "Commander's Horn",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "传世",
+        "号令",
+        "通才"
+      ],
+      "abilityText": "传世、号令、通才",
+      "pohuDesignNote": "兼具权谋、号令与武功。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0056",
+      "name": "郭嘉",
+      "baseName": "郭嘉",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 7,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "谋断先机。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0057",
+      "name": "荀攸",
+      "baseName": "荀攸",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 6,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "机密谋主，信息收益。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0058",
+      "name": "司马懿",
+      "baseName": "司马懿",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "hero",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 10,
+      "abilities": [
+        "Hero"
+      ],
+      "abilityDisplayNames": [
+        "传世"
+      ],
+      "abilityText": "传世",
+      "pohuDesignNote": "隐忍成局，传世级权谋。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0059",
+      "name": "诸葛亮",
+      "baseName": "诸葛亮",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "hero",
+      "row": [
+        "ranged",
+        "melee"
+      ],
+      "rowDisplayName": "朝堂 / 疆场",
+      "strength": 10,
+      "abilities": [
+        "Hero",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "传世",
+        "通才"
+      ],
+      "abilityText": "传世、通才",
+      "pohuDesignNote": "庙算与军略并重。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0060",
+      "name": "周瑜",
+      "baseName": "周瑜",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "melee",
+        "ranged"
+      ],
+      "rowDisplayName": "疆场 / 朝堂",
+      "strength": 8,
+      "abilities": [
+        "Scorch",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "奇策",
+        "通才"
+      ],
+      "abilityText": "奇策、通才",
+      "pohuDesignNote": "火攻破强，兼具统帅与谋略。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0061",
+      "name": "鲁肃",
+      "baseName": "鲁肃",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 5,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "联盟协调，稳定朝堂。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0062",
+      "name": "外交使节",
+      "baseName": "外交使节",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 2,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "使节入局，给对方小分，己方抽牌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0063",
+      "name": "外交使节",
+      "baseName": "外交使节",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 2,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "使节入局，给对方小分，己方抽牌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0064",
+      "name": "外交使节",
+      "baseName": "外交使节",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 2,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "使节入局，给对方小分，己方抽牌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0065",
+      "name": "门客谋士",
+      "baseName": "门客谋士",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 3,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "门客群策，同盟联动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0066",
+      "name": "门客谋士",
+      "baseName": "门客谋士",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 3,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "门客群策，同盟联动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0067",
+      "name": "门客谋士",
+      "baseName": "门客谋士",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 3,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "门客群策，同盟联动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0068",
+      "name": "合纵策士",
+      "baseName": "合纵策士",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "一人登场，群策响应。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0069",
+      "name": "合纵策士",
+      "baseName": "合纵策士",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "一人登场，群策响应。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0070",
+      "name": "连横策士",
+      "baseName": "连横策士",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "连横体系，成组出牌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0071",
+      "name": "连横策士",
+      "baseName": "连横策士",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "连横体系，成组出牌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0072",
+      "name": "管仲",
+      "baseName": "管仲",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 8,
+      "abilities": [
+        "Commander's Horn"
+      ],
+      "abilityDisplayNames": [
+        "号令"
+      ],
+      "abilityText": "号令",
+      "pohuDesignNote": "九合诸侯，一线号令。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0073",
+      "name": "乐毅",
+      "baseName": "乐毅",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 8,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "合纵伐齐，鼓舞疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0074",
+      "name": "孙膑",
+      "baseName": "孙膑",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "melee",
+        "ranged"
+      ],
+      "rowDisplayName": "疆场 / 朝堂",
+      "strength": 7,
+      "abilities": [
+        "Scorch",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "奇策",
+        "通才"
+      ],
+      "abilityText": "奇策、通才",
+      "pohuDesignNote": "围魏救赵，以计破强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0075",
+      "name": "蔺相如",
+      "baseName": "蔺相如",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 6,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "出使强秦，完璧归赵。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0076",
+      "name": "将相和",
+      "baseName": "将相和",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged",
+        "melee"
+      ],
+      "rowDisplayName": "朝堂 / 疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "同盟",
+        "通才"
+      ],
+      "abilityText": "同盟、通才",
+      "pohuDesignNote": "廉颇蔺相如主题，同盟联动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0077",
+      "name": "将相和",
+      "baseName": "将相和",
+      "faction": "Nilfgaardian Empire",
+      "factionDisplayName": "纵横权谋",
+      "category": "unit",
+      "row": [
+        "ranged",
+        "melee"
+      ],
+      "rowDisplayName": "朝堂 / 疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "同盟",
+        "通才"
+      ],
+      "abilityText": "同盟、通才",
+      "pohuDesignNote": "廉颇蔺相如主题，同盟联动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0078",
+      "name": "孔子",
+      "baseName": "孔子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "hero",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 10,
+      "abilities": [
+        "Hero",
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "传世",
+        "集贤"
+      ],
+      "abilityText": "传世、集贤",
+      "pohuDesignNote": "儒家源流，传世并引出门生。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0079",
+      "name": "孟子",
+      "baseName": "孟子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 7,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "浩然之气，文脉振势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0080",
+      "name": "荀子",
+      "baseName": "荀子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 6,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "礼法体系，与学派同盟。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0081",
+      "name": "老子",
+      "baseName": "老子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "hero",
+      "row": [
+        "siege",
+        "ranged"
+      ],
+      "rowDisplayName": "文脉 / 朝堂",
+      "strength": 10,
+      "abilities": [
+        "Hero",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "传世",
+        "通才"
+      ],
+      "abilityText": "传世、通才",
+      "pohuDesignNote": "思想与治术皆通。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0082",
+      "name": "庄子",
+      "baseName": "庄子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 7,
+      "abilities": [
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "通才"
+      ],
+      "abilityText": "通才",
+      "pohuDesignNote": "逍遥游，通才位移。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0083",
+      "name": "墨子",
+      "baseName": "墨子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege",
+        "ranged"
+      ],
+      "rowDisplayName": "文脉 / 朝堂",
+      "strength": 7,
+      "abilities": [
+        "Agile",
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "通才",
+        "济世"
+      ],
+      "abilityText": "通才、济世",
+      "pohuDesignNote": "兼爱、守城、工技，兼具济世。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0084",
+      "name": "韩非",
+      "baseName": "韩非",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "ranged",
+        "siege"
+      ],
+      "rowDisplayName": "朝堂 / 文脉",
+      "strength": 8,
+      "abilities": [
+        "Scorch",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "奇策",
+        "通才"
+      ],
+      "abilityText": "奇策、通才",
+      "pohuDesignNote": "法术势，奇策制衡。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0085",
+      "name": "商鞅",
+      "baseName": "商鞅",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 8,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "变法破局，压制强线。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0086",
+      "name": "孙子",
+      "baseName": "孙子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "melee",
+        "siege"
+      ],
+      "rowDisplayName": "疆场 / 文脉",
+      "strength": 9,
+      "abilities": [
+        "Scorch",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "奇策",
+        "通才"
+      ],
+      "abilityText": "奇策、通才",
+      "pohuDesignNote": "兵法入文脉，也可入疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0087",
+      "name": "孙膑兵法",
+      "baseName": "孙膑兵法",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "melee",
+        "siege"
+      ],
+      "rowDisplayName": "疆场 / 文脉",
+      "strength": 7,
+      "abilities": [
+        "Scorch",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "奇策",
+        "通才"
+      ],
+      "abilityText": "奇策、通才",
+      "pohuDesignNote": "兵学传承。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0088",
+      "name": "王阳明",
+      "baseName": "王阳明",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "ranged",
+        "siege"
+      ],
+      "rowDisplayName": "朝堂 / 文脉",
+      "strength": 8,
+      "abilities": [
+        "Agile",
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "通才",
+        "振势"
+      ],
+      "abilityText": "通才、振势",
+      "pohuDesignNote": "知行合一，朝堂与文脉兼具。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0089",
+      "name": "朱熹",
+      "baseName": "朱熹",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 7,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "理学成系，强化文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0090",
+      "name": "孔门弟子",
+      "baseName": "孔门弟子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 3,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "弟子群像，集贤连动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0091",
+      "name": "孔门弟子",
+      "baseName": "孔门弟子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 3,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "弟子群像，集贤连动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0092",
+      "name": "孔门弟子",
+      "baseName": "孔门弟子",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 3,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "弟子群像，集贤连动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0093",
+      "name": "稷下学士",
+      "baseName": "稷下学士",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "百家汇聚，同盟增幅。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0094",
+      "name": "稷下学士",
+      "baseName": "稷下学士",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "百家汇聚，同盟增幅。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0095",
+      "name": "稷下学士",
+      "baseName": "稷下学士",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "百家汇聚，同盟增幅。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0096",
+      "name": "唐宋八大家",
+      "baseName": "唐宋八大家",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "文脉群星，同名加倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0097",
+      "name": "唐宋八大家",
+      "baseName": "唐宋八大家",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "文脉群星，同名加倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0098",
+      "name": "唐宋八大家",
+      "baseName": "唐宋八大家",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "文脉群星，同名加倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0099",
+      "name": "李白",
+      "baseName": "李白",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "hero",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 10,
+      "abilities": [
+        "Hero"
+      ],
+      "abilityDisplayNames": [
+        "传世"
+      ],
+      "abilityText": "传世",
+      "pohuDesignNote": "诗仙传世。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0100",
+      "name": "杜甫",
+      "baseName": "杜甫",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "hero",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 10,
+      "abilities": [
+        "Hero",
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "传世",
+        "振势"
+      ],
+      "abilityText": "传世、振势",
+      "pohuDesignNote": "诗圣传世，兼具振势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0101",
+      "name": "苏轼",
+      "baseName": "苏轼",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege",
+        "ranged"
+      ],
+      "rowDisplayName": "文脉 / 朝堂",
+      "strength": 8,
+      "abilities": [
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "通才"
+      ],
+      "abilityText": "通才",
+      "pohuDesignNote": "文章、政事、艺术皆通。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0102",
+      "name": "柳宗元",
+      "baseName": "柳宗元",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege",
+        "ranged"
+      ],
+      "rowDisplayName": "文脉 / 朝堂",
+      "strength": 6,
+      "abilities": [
+        "Scorch",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "奇策",
+        "通才"
+      ],
+      "abilityText": "奇策、通才",
+      "pohuDesignNote": "文与政皆可破局。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0103",
+      "name": "王安石",
+      "baseName": "王安石",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 7,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "变法奇策。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0104",
+      "name": "顾炎武",
+      "baseName": "顾炎武",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 6,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "经世致用，文脉振势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0105",
+      "name": "黄宗羲",
+      "baseName": "黄宗羲",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege",
+        "ranged"
+      ],
+      "rowDisplayName": "文脉 / 朝堂",
+      "strength": 6,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "思想批判，奇策削强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0106",
+      "name": "王夫之",
+      "baseName": "王夫之",
+      "faction": "Scoia'tael",
+      "factionDisplayName": "百家争鸣",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 6,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "思想延续，稳定文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0107",
+      "name": "项羽",
+      "baseName": "项羽",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "hero",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 11,
+      "abilities": [
+        "Hero",
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "传世",
+        "奇策"
+      ],
+      "abilityText": "传世、奇策",
+      "pohuDesignNote": "霸王破阵，传世且可奇策破强。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0108",
+      "name": "陈胜",
+      "baseName": "陈胜",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "揭竿而起，引发集贤。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0109",
+      "name": "吴广",
+      "baseName": "吴广",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "与陈胜共同点火。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0110",
+      "name": "刘秀",
+      "baseName": "刘秀",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee",
+        "ranged"
+      ],
+      "rowDisplayName": "疆场 / 朝堂",
+      "strength": 8,
+      "abilities": [
+        "Agile",
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "通才",
+        "振势"
+      ],
+      "abilityText": "通才、振势",
+      "pohuDesignNote": "草莽复汉，兼具疆场与朝堂。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0111",
+      "name": "关羽",
+      "baseName": "关羽",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 8,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "义气振势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0112",
+      "name": "张飞",
+      "baseName": "张飞",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 7,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "猛将破阵。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0113",
+      "name": "赵云",
+      "baseName": "赵云",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 8,
+      "abilities": [
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "通才"
+      ],
+      "abilityText": "通才",
+      "pohuDesignNote": "单骑救主，灵活机动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0114",
+      "name": "秦良玉",
+      "baseName": "秦良玉",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 7,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "白杆兵统帅，疆场振势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0115",
+      "name": "梁红玉",
+      "baseName": "梁红玉",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 6,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "擂鼓战金山，鼓舞同线。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0116",
+      "name": "文天祥",
+      "baseName": "文天祥",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "hero",
+      "row": [
+        "siege",
+        "melee"
+      ],
+      "rowDisplayName": "文脉 / 疆场",
+      "strength": 8,
+      "abilities": [
+        "Hero",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "传世",
+        "通才"
+      ],
+      "abilityText": "传世、通才",
+      "pohuDesignNote": "气节传世，可入文脉与疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0117",
+      "name": "辛弃疾",
+      "baseName": "辛弃疾",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee",
+        "siege"
+      ],
+      "rowDisplayName": "疆场 / 文脉",
+      "strength": 7,
+      "abilities": [
+        "Agile",
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "通才",
+        "振势"
+      ],
+      "abilityText": "通才、振势",
+      "pohuDesignNote": "词人与将略兼具。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0118",
+      "name": "黄巢",
+      "baseName": "黄巢",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 7,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "乱世冲击，破强势牌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0119",
+      "name": "李自成",
+      "baseName": "李自成",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 7,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "闯王号召，触发集群。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0120",
+      "name": "张角",
+      "baseName": "张角",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "ranged",
+        "melee"
+      ],
+      "rowDisplayName": "朝堂 / 疆场",
+      "strength": 6,
+      "abilities": [
+        "Muster",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "集贤",
+        "通才"
+      ],
+      "abilityText": "集贤、通才",
+      "pohuDesignNote": "太平道起事，号召群众。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0121",
+      "name": "瓦岗群雄",
+      "baseName": "瓦岗群雄",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "草莽英雄群像，集贤连出。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0122",
+      "name": "瓦岗群雄",
+      "baseName": "瓦岗群雄",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "草莽英雄群像，集贤连出。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0123",
+      "name": "瓦岗群雄",
+      "baseName": "瓦岗群雄",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "草莽英雄群像，集贤连出。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0124",
+      "name": "桃园义士",
+      "baseName": "桃园义士",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "义结同心，同盟翻倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0125",
+      "name": "桃园义士",
+      "baseName": "桃园义士",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "义结同心，同盟翻倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0126",
+      "name": "桃园义士",
+      "baseName": "桃园义士",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "义结同心，同盟翻倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0127",
+      "name": "水师义旅",
+      "baseName": "水师义旅",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "水师协同，同线加成。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0128",
+      "name": "水师义旅",
+      "baseName": "水师义旅",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "水师协同，同线加成。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0129",
+      "name": "背水先锋",
+      "baseName": "背水先锋",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 3,
+      "abilities": [
+        "Berserker"
+      ],
+      "abilityDisplayNames": [
+        "奋起"
+      ],
+      "abilityText": "奋起",
+      "pohuDesignNote": "可被破釜沉舟触发奋起。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0130",
+      "name": "背水先锋",
+      "baseName": "背水先锋",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 3,
+      "abilities": [
+        "Berserker"
+      ],
+      "abilityDisplayNames": [
+        "奋起"
+      ],
+      "abilityText": "奋起",
+      "pohuDesignNote": "可被破釜沉舟触发奋起。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0131",
+      "name": "背水先锋",
+      "baseName": "背水先锋",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 3,
+      "abilities": [
+        "Berserker"
+      ],
+      "abilityDisplayNames": [
+        "奋起"
+      ],
+      "abilityText": "奋起",
+      "pohuDesignNote": "可被破釜沉舟触发奋起。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0132",
+      "name": "祖逖",
+      "baseName": "祖逖",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 6,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "闻鸡起舞，振奋疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0133",
+      "name": "陆秀夫",
+      "baseName": "陆秀夫",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "siege",
+        "melee"
+      ],
+      "rowDisplayName": "文脉 / 疆场",
+      "strength": 6,
+      "abilities": [
+        "Morale Boost",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "振势",
+        "通才"
+      ],
+      "abilityText": "振势、通才",
+      "pohuDesignNote": "气节与守土。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0134",
+      "name": "岳云",
+      "baseName": "岳云",
+      "faction": "Monsters",
+      "factionDisplayName": "草莽星火",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 6,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "少年将领，与忠义体系联动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0135",
+      "name": "司马迁",
+      "baseName": "司马迁",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "hero",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 10,
+      "abilities": [
+        "Hero"
+      ],
+      "abilityDisplayNames": [
+        "传世"
+      ],
+      "abilityText": "传世",
+      "pohuDesignNote": "史家绝唱，文脉传世。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0136",
+      "name": "班固",
+      "baseName": "班固",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 7,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "断代史体系，与史家群星同盟。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0137",
+      "name": "蔡伦",
+      "baseName": "蔡伦",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 6,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "造纸改写传播方式。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0138",
+      "name": "毕昇",
+      "baseName": "毕昇",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 6,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "活字印刷，引出工匠体系。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0139",
+      "name": "祖冲之",
+      "baseName": "祖冲之",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 8,
+      "abilities": [
+        "Hero"
+      ],
+      "abilityDisplayNames": [
+        "传世"
+      ],
+      "abilityText": "传世",
+      "pohuDesignNote": "数学成就传世。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0140",
+      "name": "张衡",
+      "baseName": "张衡",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege",
+        "ranged"
+      ],
+      "rowDisplayName": "文脉 / 朝堂",
+      "strength": 8,
+      "abilities": [
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "通才"
+      ],
+      "abilityText": "通才",
+      "pohuDesignNote": "科学与制度任职兼具。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0141",
+      "name": "沈括",
+      "baseName": "沈括",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege",
+        "ranged"
+      ],
+      "rowDisplayName": "文脉 / 朝堂",
+      "strength": 8,
+      "abilities": [
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "通才"
+      ],
+      "abilityText": "通才",
+      "pohuDesignNote": "博物通才。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0142",
+      "name": "李时珍",
+      "baseName": "李时珍",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 7,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "本草济世，可复起人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0143",
+      "name": "孙思邈",
+      "baseName": "孙思邈",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 8,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "药王济世。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0144",
+      "name": "张仲景",
+      "baseName": "张仲景",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 8,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "医圣复起。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0145",
+      "name": "华佗",
+      "baseName": "华佗",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 7,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "外科传说，济世能力。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0146",
+      "name": "扁鹊",
+      "baseName": "扁鹊",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 7,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "名医望闻问切。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0147",
+      "name": "张居正",
+      "baseName": "张居正",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 8,
+      "abilities": [
+        "Commander's Horn"
+      ],
+      "abilityDisplayNames": [
+        "号令"
+      ],
+      "abilityText": "号令",
+      "pohuDesignNote": "万历新政，朝堂号令。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0148",
+      "name": "郑和",
+      "baseName": "郑和",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "ranged",
+        "siege"
+      ],
+      "rowDisplayName": "朝堂 / 文脉",
+      "strength": 7,
+      "abilities": [
+        "Spy",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "出使",
+        "通才"
+      ],
+      "abilityText": "出使、通才",
+      "pohuDesignNote": "远航出使，兼具文脉影响。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0149",
+      "name": "徐霞客",
+      "baseName": "徐霞客",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 6,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "行走山河，信息收益。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0150",
+      "name": "贾思勰",
+      "baseName": "贾思勰",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 6,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "农学遗产，强化文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0151",
+      "name": "宋应星",
+      "baseName": "宋应星",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 7,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "天工开物，引出百工。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0152",
+      "name": "郦道元",
+      "baseName": "郦道元",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 6,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "水经注，地理情报。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0153",
+      "name": "郭守敬",
+      "baseName": "郭守敬",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege",
+        "ranged"
+      ],
+      "rowDisplayName": "文脉 / 朝堂",
+      "strength": 7,
+      "abilities": [
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "通才"
+      ],
+      "abilityText": "通才",
+      "pohuDesignNote": "历法与水利通才。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0154",
+      "name": "史家群星",
+      "baseName": "史家群星",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "史学传承，同盟倍增。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0155",
+      "name": "史家群星",
+      "baseName": "史家群星",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "史学传承，同盟倍增。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0156",
+      "name": "史家群星",
+      "baseName": "史家群星",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 4,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "史学传承，同盟倍增。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0157",
+      "name": "医家传承",
+      "baseName": "医家传承",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 2,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "医家群像，低战力但能复起。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0158",
+      "name": "医家传承",
+      "baseName": "医家传承",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 2,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "医家群像，低战力但能复起。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0159",
+      "name": "医家传承",
+      "baseName": "医家传承",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 2,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "医家群像，低战力但能复起。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0160",
+      "name": "工匠百作",
+      "baseName": "工匠百作",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "百工体系，集贤连动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0161",
+      "name": "工匠百作",
+      "baseName": "工匠百作",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "百工体系，集贤连动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0162",
+      "name": "工匠百作",
+      "baseName": "工匠百作",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 4,
+      "abilities": [
+        "Muster"
+      ],
+      "abilityDisplayNames": [
+        "集贤"
+      ],
+      "abilityText": "集贤",
+      "pohuDesignNote": "百工体系，集贤连动。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0163",
+      "name": "四大发明",
+      "baseName": "四大发明",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "技术符号化卡牌，文脉同盟。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0164",
+      "name": "四大发明",
+      "baseName": "四大发明",
+      "faction": "Skellige",
+      "factionDisplayName": "遗策复兴",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 5,
+      "abilities": [
+        "Tight Bond"
+      ],
+      "abilityDisplayNames": [
+        "同盟"
+      ],
+      "abilityText": "同盟",
+      "pohuDesignNote": "技术符号化卡牌，文脉同盟。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0165",
+      "name": "边患四起",
+      "baseName": "边患四起",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "时局压制疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Biting Frost"
+    },
+    {
+      "id": "pohu-0166",
+      "name": "边患四起",
+      "baseName": "边患四起",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "时局压制疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Biting Frost"
+    },
+    {
+      "id": "pohu-0167",
+      "name": "边患四起",
+      "baseName": "边患四起",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "时局压制疆场。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Biting Frost"
+    },
+    {
+      "id": "pohu-0168",
+      "name": "党争迷局",
+      "baseName": "党争迷局",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "时局压制朝堂。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Impenetrable Fog"
+    },
+    {
+      "id": "pohu-0169",
+      "name": "党争迷局",
+      "baseName": "党争迷局",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "时局压制朝堂。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Impenetrable Fog"
+    },
+    {
+      "id": "pohu-0170",
+      "name": "党争迷局",
+      "baseName": "党争迷局",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "时局压制朝堂。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Impenetrable Fog"
+    },
+    {
+      "id": "pohu-0171",
+      "name": "典籍散佚",
+      "baseName": "典籍散佚",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "时局压制文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Torrential Rain"
+    },
+    {
+      "id": "pohu-0172",
+      "name": "典籍散佚",
+      "baseName": "典籍散佚",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "时局压制文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Torrential Rain"
+    },
+    {
+      "id": "pohu-0173",
+      "name": "典籍散佚",
+      "baseName": "典籍散佚",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "时局压制文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Torrential Rain"
+    },
+    {
+      "id": "pohu-0174",
+      "name": "时代洪流",
+      "baseName": "时代洪流",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "ranged",
+        "siege"
+      ],
+      "rowDisplayName": "朝堂 / 文脉",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "同时压制朝堂与文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Skellige Storm"
+    },
+    {
+      "id": "pohu-0175",
+      "name": "时代洪流",
+      "baseName": "时代洪流",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [
+        "ranged",
+        "siege"
+      ],
+      "rowDisplayName": "朝堂 / 文脉",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "同时压制朝堂与文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Skellige Storm"
+    },
+    {
+      "id": "pohu-0176",
+      "name": "拨云见日",
+      "baseName": "拨云见日",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "清除全部时局。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Clear Weather"
+    },
+    {
+      "id": "pohu-0177",
+      "name": "拨云见日",
+      "baseName": "拨云见日",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "清除全部时局。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Clear Weather"
+    },
+    {
+      "id": "pohu-0178",
+      "name": "拨云见日",
+      "baseName": "拨云见日",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "weather",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "时局：压制对应阵线，非传世人物战力降为 1。",
+      "pohuDesignNote": "清除全部时局。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Clear Weather"
+    },
+    {
+      "id": "pohu-0179",
+      "name": "天下檄文",
+      "baseName": "天下檄文",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [
+        "Commander's Horn"
+      ],
+      "abilityDisplayNames": [
+        "号令"
+      ],
+      "abilityText": "号令：选择己方一条阵线，该线所有人物战力翻倍。",
+      "pohuDesignNote": "选择己方一线战力翻倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Commander's Horn"
+    },
+    {
+      "id": "pohu-0180",
+      "name": "天下檄文",
+      "baseName": "天下檄文",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [
+        "Commander's Horn"
+      ],
+      "abilityDisplayNames": [
+        "号令"
+      ],
+      "abilityText": "号令：选择己方一条阵线，该线所有人物战力翻倍。",
+      "pohuDesignNote": "选择己方一线战力翻倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Commander's Horn"
+    },
+    {
+      "id": "pohu-0181",
+      "name": "天下檄文",
+      "baseName": "天下檄文",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [
+        "Commander's Horn"
+      ],
+      "abilityDisplayNames": [
+        "号令"
+      ],
+      "abilityText": "号令：选择己方一条阵线，该线所有人物战力翻倍。",
+      "pohuDesignNote": "选择己方一线战力翻倍。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Commander's Horn"
+    },
+    {
+      "id": "pohu-0182",
+      "name": "釜底抽薪",
+      "baseName": "釜底抽薪",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策：摧毁场上最高战力的非传世人物。",
+      "pohuDesignNote": "摧毁最高战力非传世人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Scorch"
+    },
+    {
+      "id": "pohu-0183",
+      "name": "釜底抽薪",
+      "baseName": "釜底抽薪",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策：摧毁场上最高战力的非传世人物。",
+      "pohuDesignNote": "摧毁最高战力非传世人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Scorch"
+    },
+    {
+      "id": "pohu-0184",
+      "name": "釜底抽薪",
+      "baseName": "釜底抽薪",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策：摧毁场上最高战力的非传世人物。",
+      "pohuDesignNote": "摧毁最高战力非传世人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Scorch"
+    },
+    {
+      "id": "pohu-0185",
+      "name": "请辞归隐",
+      "baseName": "请辞归隐",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "请辞：将己方场上一张非传世人物收回手牌。",
+      "pohuDesignNote": "收回己方非传世人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Decoy"
+    },
+    {
+      "id": "pohu-0186",
+      "name": "请辞归隐",
+      "baseName": "请辞归隐",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "请辞：将己方场上一张非传世人物收回手牌。",
+      "pohuDesignNote": "收回己方非传世人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Decoy"
+    },
+    {
+      "id": "pohu-0187",
+      "name": "请辞归隐",
+      "baseName": "请辞归隐",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [],
+      "abilityDisplayNames": [],
+      "abilityText": "请辞：将己方场上一张非传世人物收回手牌。",
+      "pohuDesignNote": "收回己方非传世人物。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 3,
+      "copyLabel": "3 of 3",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Decoy"
+    },
+    {
+      "id": "pohu-0188",
+      "name": "破釜沉舟",
+      "baseName": "破釜沉舟",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [
+        "Mardroeme"
+      ],
+      "abilityDisplayNames": [
+        "破釜"
+      ],
+      "abilityText": "破釜沉舟：触发同一线所有“奋起”人物转化。",
+      "pohuDesignNote": "触发奋起人物转化。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "1 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Mardroeme"
+    },
+    {
+      "id": "pohu-0189",
+      "name": "破釜沉舟",
+      "baseName": "破釜沉舟",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "special",
+      "row": [],
+      "rowDisplayName": "",
+      "strength": null,
+      "abilities": [
+        "Mardroeme"
+      ],
+      "abilityDisplayNames": [
+        "破釜"
+      ],
+      "abilityText": "破釜沉舟：触发同一线所有“奋起”人物转化。",
+      "pohuDesignNote": "触发奋起人物转化。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Event",
+      "imageUrl": "",
+      "copyIndex": 2,
+      "copyLabel": "2 of 2",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。",
+      "effectKey": "Mardroeme"
+    },
+    {
+      "id": "pohu-0190",
+      "name": "屈原",
+      "baseName": "屈原",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "hero",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 9,
+      "abilities": [
+        "Hero"
+      ],
+      "abilityDisplayNames": [
+        "传世"
+      ],
+      "abilityText": "传世",
+      "pohuDesignNote": "文化象征，文脉传世。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0191",
+      "name": "张骞",
+      "baseName": "张骞",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 5,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "凿空西域，出使抽牌。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0192",
+      "name": "玄奘",
+      "baseName": "玄奘",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "unit",
+      "row": [
+        "siege",
+        "ranged"
+      ],
+      "rowDisplayName": "文脉 / 朝堂",
+      "strength": 6,
+      "abilities": [
+        "Spy",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "出使",
+        "通才"
+      ],
+      "abilityText": "出使、通才",
+      "pohuDesignNote": "远行求法，信息与文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0193",
+      "name": "鲁班",
+      "baseName": "鲁班",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 7,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "工匠祖师，强化文脉。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0194",
+      "name": "妇好",
+      "baseName": "妇好",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "unit",
+      "row": [
+        "melee"
+      ],
+      "rowDisplayName": "疆场",
+      "strength": 8,
+      "abilities": [
+        "Morale Boost"
+      ],
+      "abilityDisplayNames": [
+        "振势"
+      ],
+      "abilityText": "振势",
+      "pohuDesignNote": "商代女将，疆场振势。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0195",
+      "name": "武则天",
+      "baseName": "武则天",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "hero",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 9,
+      "abilities": [
+        "Hero"
+      ],
+      "abilityDisplayNames": [
+        "传世"
+      ],
+      "abilityText": "传世",
+      "pohuDesignNote": "女性帝王，朝堂传世。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": true,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0196",
+      "name": "班超",
+      "baseName": "班超",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "unit",
+      "row": [
+        "ranged",
+        "melee"
+      ],
+      "rowDisplayName": "朝堂 / 疆场",
+      "strength": 6,
+      "abilities": [
+        "Spy",
+        "Agile"
+      ],
+      "abilityDisplayNames": [
+        "出使",
+        "通才"
+      ],
+      "abilityText": "出使、通才",
+      "pohuDesignNote": "投笔从戎，出使与疆场兼具。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0197",
+      "name": "王昭君",
+      "baseName": "王昭君",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 4,
+      "abilities": [
+        "Spy"
+      ],
+      "abilityDisplayNames": [
+        "出使"
+      ],
+      "abilityText": "出使",
+      "pohuDesignNote": "和亲出塞，出使换资源。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0198",
+      "name": "鉴真",
+      "baseName": "鉴真",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "unit",
+      "row": [
+        "siege"
+      ],
+      "rowDisplayName": "文脉",
+      "strength": 5,
+      "abilities": [
+        "Medic"
+      ],
+      "abilityDisplayNames": [
+        "济世"
+      ],
+      "abilityText": "济世",
+      "pohuDesignNote": "东渡传法，济世与传承。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    },
+    {
+      "id": "pohu-0199",
+      "name": "海瑞",
+      "baseName": "海瑞",
+      "faction": "Neutral",
+      "factionDisplayName": "天下共识",
+      "category": "unit",
+      "row": [
+        "ranged"
+      ],
+      "rowDisplayName": "朝堂",
+      "strength": 5,
+      "abilities": [
+        "Scorch"
+      ],
+      "abilityDisplayNames": [
+        "奇策"
+      ],
+      "abilityText": "奇策",
+      "pohuDesignNote": "刚直清议，奇策制衡。",
+      "acquisitionMethod": "原创设计",
+      "acquisitionDetails": "初始牌池",
+      "territory": "原创历史主题",
+      "expansion": "Pohu Core",
+      "imageUrl": "",
+      "copyIndex": 1,
+      "copyLabel": "",
+      "hero": false,
+      "copyrightStatus": "原创数据；未使用《巫师3》角色、卡面或世界观。"
+    }
+  ]
+}
