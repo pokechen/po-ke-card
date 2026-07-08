@@ -18,3 +18,7 @@ po-ke-card-wechat-game/project.private.config.json
 .kuai.yaml
 
 .codebuddy/
+
+# 独立子仓库
+po-ke-card-h5/
+po-ke-card-wechat-game/
