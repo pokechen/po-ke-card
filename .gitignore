@@ -6,3 +6,15 @@ preview-*.png
 
 # WorkBuddy 缓存
 .workbuddy/
+
+temp/
+
+# 本地生成/验证产物
+verify-output/
+
+# 微信开发者工具本地私有配置
+po-ke-card-wechat-game/project.private.config.json
+
+.kuai.yaml
+
+.codebuddy/
