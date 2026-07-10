@@ -7,8 +7,6 @@ preview-*.png
 # WorkBuddy 缓存
 .workbuddy/
 
-temp/
-
 # 本地生成/验证产物
 verify-output/
 
@@ -17,8 +15,7 @@ po-ke-card-wechat-game/project.private.config.json
 
 .kuai.yaml
 
-.codebuddy/
+# Node 依赖
+node_modules/
 
-# 独立子仓库
-po-ke-card-h5/
-po-ke-card-wechat-game/
+.codebuddy/

@@ -1,0 +1,6 @@
+[submodule "po-ke-card-h5"]
+	path = po-ke-card-h5
+	url = https://github.com/pokechen/po-ke-card-h5
+[submodule "po-ke-card-wechat-game"]
+	path = po-ke-card-wechat-game
+	url = https://github.com/pokechen/po-ke-card-wechat-game
