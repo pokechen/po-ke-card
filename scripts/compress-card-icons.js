@@ -269,12 +269,12 @@ async function main() {
 
     const isRecorded = processedState && processedState.names.has(recordName);
     const hasExistingOutput = processedState && Number.isFinite(existingOutputSize);
-    if (processedState && !options.force && (isRecorded || hasExistingOutput)) {
+    if (processedState && !options.force && isRecorded && hasExistingOutput) {
       skipped += 1;
       processedSkipped += 1;
       afterTotal += Math.min(oldSize, existingOutputSize);
       if (!options.dryRun) markProcessed(processedState, recordName);
-      console.log(`跳过：${oldRel}，${isRecorded ? "已在处理记录中" : "已存在压缩结果"}`);
+      console.log(`跳过：${oldRel}，已处理且存在压缩结果`);
       continue;
     }
 
