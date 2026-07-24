@@ -268,13 +268,12 @@ async function main() {
     const existingOutputSize = fs.existsSync(outputPath) ? fileSize(outputPath) : Infinity;
 
     const isRecorded = processedState && processedState.names.has(recordName);
-    const hasExistingOutput = processedState && Number.isFinite(existingOutputSize);
-    if (processedState && !options.force && isRecorded && hasExistingOutput) {
+    if (processedState && !options.force && isRecorded) {
       skipped += 1;
       processedSkipped += 1;
-      afterTotal += Math.min(oldSize, existingOutputSize);
+      afterTotal += oldSize;
       if (!options.dryRun) markProcessed(processedState, recordName);
-      console.log(`跳过：${oldRel}，已处理且存在压缩结果`);
+      console.log(`跳过：${oldRel}，已在处理记录中`);
       continue;
     }
 
