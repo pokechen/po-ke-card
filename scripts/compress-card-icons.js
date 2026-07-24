@@ -5,7 +5,7 @@ const path = require("path");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const GAME_DIR = "po-ke-card-wechat-game";
-const DEFAULT_ICON_DIR = `${GAME_DIR}/assets/card-icons`;
+const DEFAULT_ICON_DIR = "tmp/card-icons";
 const DEFAULT_REF_FILES = [
   "po-ke-card-wechat-game/js/data/zhangyu_cards.js",
   "po-ke-card-wechat-game/assets/card-icons/card-image-map.json"
@@ -71,19 +71,19 @@ function printHelp() {
   npm run compress:wechat-card-icons -- po-ke-card-wechat-game/assets/card-icons/周瑜.webp
   npm run compress:wechat-card-icons -- po-ke-card-wechat-game/assets/card-icons
 
-调试输出模式：
-  命令后传入文件或目录路径时，不改原文件、不更新引用；压缩结果会写入输入路径同目录的 compress-icons 目录。
+输出位置：
+  默认与带文件/目录参数的模式，均不改原文件；压缩结果写入「输入目录同级的 compress-icons 目录」（可用 --out-dir= 覆盖）。
 
 参数：
   --dir=<path>          图片目录，默认 ${DEFAULT_ICON_DIR}
-  --out-dir=<path>      调试输出目录，默认输入路径同目录下的 compress-icons
+  --out-dir=<path>      输出目录，默认输入路径同目录下的 compress-icons
   --width=<number>     最大宽度，默认 360
   --height=<number>    最大高度，默认 480
   --quality=<1-100>    WebP 质量，默认 72
   --effort=<0-6>       WebP 压缩强度，默认 6
   --dry-run            只预览，不写文件
   --force              即使压缩后更大也覆盖；目录增量模式下会忽略已处理记录
-  --delete-original    转为 WebP 并更新引用后删除原 PNG/JPG，仅默认原地压缩模式有效
+  --delete-original    转为 WebP 后删除原 PNG/JPG（输出到 compress-icons 时此选项生效）
   --no-update-refs     不更新卡牌数据中的 imageUrl
 `);
 }
@@ -142,12 +142,11 @@ function resolveInput(options) {
 }
 
 function resolveOutputDir(options, input) {
-  if (!options.inputPath && !options.outDir) return "";
   return path.resolve(ROOT_DIR, options.outDir || path.join(input.sourceDir, "compress-icons"));
 }
 
 function createProcessedState(options, input) {
-  if (!options.inputPath || !input.isDirectory) return null;
+  if (!input.isDirectory) return null;
 
   const filePath = path.join(input.sourceDir, PROCESSED_FILE_NAME);
   if (!fs.existsSync(filePath)) {
