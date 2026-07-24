@@ -6,3 +6,5 @@
 .codebuddy/
 
 .kuai.yaml
+
+node_modules/
