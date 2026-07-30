@@ -32,7 +32,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "妇好",
+    "baseName": "花木兰",
     "categoryDisplayName": "传世",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -64,7 +64,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "屈原",
+    "baseName": "西施",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -96,7 +96,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "张骞",
+    "baseName": "徐霞客",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -112,7 +112,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "姜子牙",
+    "baseName": "王昭君",
     "categoryDisplayName": "传世",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -128,7 +128,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "鉴真",
+    "baseName": "杨玉环",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -144,7 +144,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "田单",
+    "baseName": "貂蝉",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -160,11 +160,11 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "杨戬",
+    "baseName": "周瑜",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "朝堂",
-    "abilityText": "召唤啸天犬：杨戬每次离开战场后，都会在下一回合开始时于己方「疆场」阵线召唤一张啸天犬（战力 8），可多张并存。",
+    "abilityText": "召唤东吴水师：周瑜每次离开战场时，召唤一张 8 点「东吴水师」顶替；若因小局清场离场，则在下一局开始入场。",
     "cardCount": 1,
     "strength": 0,
     "gwentCardName": "Cow",
@@ -496,7 +496,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "郦食其",
+    "baseName": "蔺相如",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -529,18 +529,18 @@
   },
   {
     "baseName": "华佗",
-    "categoryDisplayName": "人物",
+    "categoryDisplayName": "传世",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
-    "abilityText": "济世：打出后可从己方弃牌堆复归 1 张非传世人物。",
+    "abilityText": "传世、济世：不受时局、鼓舞、振势、同盟等战力修正影响，也不会被奇策、请辞或济世选中。打出后可从己方弃牌堆复归 1 张非传世人物。",
     "cardCount": 1,
-    "strength": 5,
+    "strength": 7,
     "gwentCardName": "Dun Banner Medic",
     "gwentFaction": "北方王国",
     "gwentFactionKey": "Northern Realms",
     "gwentRow": "Siege",
-    "gwentStrength": 5,
-    "gwentAbility": "Medic",
+    "gwentStrength": 7,
+    "gwentAbility": "Hero, Medic",
     "gwentExpansion": "Base game"
   },
   {
@@ -560,12 +560,12 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "沈括",
+    "baseName": "房玄龄",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
     "abilityText": "无",
-    "cardCount": 2,
+    "cardCount": 1,
     "strength": 6,
     "gwentCardName": "Trebuchet",
     "gwentFaction": "北方王国",
@@ -576,7 +576,23 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "郭守敬",
+    "baseName": "李时珍",
+    "categoryDisplayName": "人物",
+    "faction": "开国群雄",
+    "rowDisplayName": "文脉",
+    "abilityText": "济世：打出后可从己方弃牌堆复归 1 张非传世人物。",
+    "cardCount": 1,
+    "strength": 5,
+    "gwentCardName": "Trebuchet",
+    "gwentFaction": "北方王国",
+    "gwentFactionKey": "Northern Realms",
+    "gwentRow": "Siege",
+    "gwentStrength": 5,
+    "gwentAbility": "Medic",
+    "gwentExpansion": "Base game"
+  },
+  {
+    "baseName": "魏征",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -592,7 +608,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "蔡伦",
+    "baseName": "长孙无忌",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -656,7 +672,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "长孙皇后",
+    "baseName": "萧何",
     "categoryDisplayName": "传世",
     "faction": "开国群雄",
     "rowDisplayName": "朝堂",
@@ -688,7 +704,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "陈平",
+    "baseName": "张骞",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -752,7 +768,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "申不害",
+    "baseName": "赵高",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -848,7 +864,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "范雎",
+    "baseName": "贾诩",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -864,7 +880,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "李冰",
+    "baseName": "商鞅",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -916,7 +932,7 @@
     "categoryDisplayName": "传世",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
-    "abilityText": "传世、济世：不受时局、鼓舞、振势、同盟等战力修正影响，也不会被奇策、请辞或济世选中。打出后可从己方弃牌堆复归 1 张非传世人物。",
+    "abilityText": "传世、振势：不受时局、鼓舞、振势、同盟等战力修正影响，也不会被奇策、请辞或济世选中。为同一阵线的其他非传世人物各加 1 点战力。",
     "cardCount": 1,
     "strength": 10,
     "gwentCardName": "Menno Coehoorn",
@@ -924,11 +940,11 @@
     "gwentFactionKey": "Nilfgaardian Empire",
     "gwentRow": "Close Combat",
     "gwentStrength": 10,
-    "gwentAbility": "Hero, Medic",
+    "gwentAbility": "Hero, Morale Boost",
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "庞涓",
+    "baseName": "赵括",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -944,7 +960,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "诸葛亮",
+    "baseName": "陆逊",
     "categoryDisplayName": "传世",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -1024,7 +1040,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "郑国",
+    "baseName": "邹忌",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -1040,7 +1056,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "赵高",
+    "baseName": "班超",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -1056,7 +1072,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "公输班",
+    "baseName": "李冰",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -1088,7 +1104,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "贾诩",
+    "baseName": "文成公主",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -1120,7 +1136,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "曹丕",
+    "baseName": "李靖",
     "categoryDisplayName": "传世",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -1184,7 +1200,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "蔺相如",
+    "baseName": "公孙衍",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -1200,7 +1216,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "范蠡",
+    "baseName": "尉缭",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -1264,7 +1280,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "邹衍",
+    "baseName": "贾谊",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1328,7 +1344,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "阮籍",
+    "baseName": "李清照",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1360,7 +1376,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "张仲景",
+    "baseName": "司马光",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1488,7 +1504,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "王阳明",
+    "baseName": "屈原",
     "categoryDisplayName": "传世",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1568,7 +1584,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "商鞅",
+    "baseName": "田单",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "文脉",
@@ -1619,7 +1635,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "刘禅",
+    "baseName": "武松",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1651,7 +1667,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "唐赛儿",
+    "baseName": "红拂女",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "朝堂",
@@ -1715,7 +1731,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "英布",
+    "baseName": "吕布",
     "categoryDisplayName": "传世",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1731,7 +1747,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "李春",
+    "baseName": "公孙胜",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "文脉",
@@ -1779,7 +1795,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "周瑜",
+    "baseName": "吴用",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "文脉",
@@ -1795,7 +1811,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "葛婴",
+    "baseName": "窦建德",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1955,7 +1971,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "郑成功",
+    "baseName": "穆桂英",
     "categoryDisplayName": "传世",
     "faction": "草莽星火",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1987,7 +2003,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "张宝",
+    "baseName": "李逵",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -2160,7 +2176,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "王仙芝",
+    "baseName": "单雄信",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "朝堂",
@@ -2192,11 +2208,11 @@
     "gwentExpansion": "Hearts of Stone"
   },
   {
-    "baseName": "祖逖",
+    "baseName": "勾践",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
-    "abilityText": "奋起：被破釜触发后转化为 14 点振势人物。",
+    "abilityText": "蛰伏：被雪耻触发后转化为 14 点振势人物。",
     "cardCount": 1,
     "strength": 4,
     "gwentCardName": "Berserker",
@@ -2224,7 +2240,7 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "薛仁贵",
+    "baseName": "狄青",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2288,7 +2304,7 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "郑芝龙",
+    "baseName": "于谦",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
@@ -2320,7 +2336,7 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "司马相如",
+    "baseName": "郑和",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2352,7 +2368,7 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "戚继光",
+    "baseName": "李如松",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2384,11 +2400,11 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "李时珍",
+    "baseName": "范蠡",
     "categoryDisplayName": "传世",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
-    "abilityText": "传世、破釜：不受时局、鼓舞、振势、同盟等战力修正影响，也不会被奇策、请辞或济世选中。打出后触发所在朝堂线奋起人物转化。",
+    "abilityText": "传世、雪耻：不受时局、鼓舞、振势、同盟等战力修正影响，也不会被奇策、请辞或济世选中。打出后触发所在朝堂线蛰伏人物转化。",
     "cardCount": 1,
     "strength": 8,
     "gwentCardName": "Ermion",
@@ -2400,7 +2416,7 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "郑和",
+    "baseName": "戚继光",
     "categoryDisplayName": "传世",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
@@ -2416,7 +2432,7 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "胡宗宪",
+    "baseName": "祖冲之",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "文脉",
@@ -2432,11 +2448,11 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "陆逊",
+    "baseName": "诸葛亮",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
-    "abilityText": "召唤陆抗：陆逊每次离开战场时，召唤一张 11 点传世陆抗顶替；若因小局清场离场，则在下一局开始入场。",
+    "abilityText": "召唤无当飞军：诸葛亮每次离开战场时，召唤一张 11 点传世「无当飞军」顶替；若因小局清场离场，则在下一局开始入场。",
     "cardCount": 1,
     "strength": 0,
     "gwentCardName": "Kambi",
@@ -2448,7 +2464,7 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "汪大渊",
+    "baseName": "王安石",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
@@ -2480,11 +2496,11 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "破釜沉舟",
+    "baseName": "卧薪尝胆",
     "categoryDisplayName": "谋略",
     "faction": "遗策复兴",
     "rowDisplayName": "",
-    "abilityText": "破釜：选择一条阵线，触发该线所有奋起人物转化。",
+    "abilityText": "雪耻：选择一条阵线，触发该线所有蛰伏人物转化。",
     "cardCount": 3,
     "strength": null,
     "gwentCardName": "Mardroeme",
@@ -2496,7 +2512,7 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "李存孝",
+    "baseName": "徐光启",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场 / 朝堂",
@@ -2544,7 +2560,7 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "施琅",
+    "baseName": "宋应星",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "文脉",
@@ -2560,11 +2576,11 @@
     "gwentExpansion": "Blood and Wine"
   },
   {
-    "baseName": "岳云",
+    "baseName": "文种",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
-    "abilityText": "奋起：被破釜触发后转化为 8 点同盟人物。",
+    "abilityText": "蛰伏：被雪耻触发后转化为 8 点同盟人物。",
     "cardCount": 3,
     "strength": 2,
     "gwentCardName": "Young Berserker",
@@ -2608,7 +2624,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "嬴政",
+    "baseName": "秦穆公",
     "categoryDisplayName": "主将",
     "faction": "开国群雄",
     "rowDisplayName": "",
@@ -2784,7 +2800,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "韩非",
+    "baseName": "吴起",
     "categoryDisplayName": "主将",
     "faction": "百家争鸣",
     "rowDisplayName": "",
@@ -2800,7 +2816,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "墨子",
+    "baseName": "董仲舒",
     "categoryDisplayName": "主将",
     "faction": "百家争鸣",
     "rowDisplayName": "",
@@ -2832,7 +2848,7 @@
     "gwentExpansion": "Hearts of Stone"
   },
   {
-    "baseName": "刘秀",
+    "baseName": "刘裕",
     "categoryDisplayName": "主将",
     "faction": "草莽星火",
     "rowDisplayName": "",
@@ -2848,7 +2864,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "项羽",
+    "baseName": "石勒",
     "categoryDisplayName": "主将",
     "faction": "草莽星火",
     "rowDisplayName": "",
@@ -2880,7 +2896,7 @@
     "gwentExpansion": "Base game"
   },
   {
-    "baseName": "陈胜",
+    "baseName": "朱温",
     "categoryDisplayName": "主将",
     "faction": "草莽星火",
     "rowDisplayName": "",
