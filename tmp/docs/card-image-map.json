@@ -1,6 +1,7 @@
 [
   {
     "baseName": "秦始皇",
+    "id": "zhangyu-0021",
     "categoryDisplayName": "传世",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -17,6 +18,7 @@
   },
   {
     "baseName": "武则天",
+    "id": "zhangyu-0195",
     "categoryDisplayName": "传世",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -33,6 +35,7 @@
   },
   {
     "baseName": "花木兰",
+    "id": "zhangyu-0194",
     "categoryDisplayName": "传世",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -49,6 +52,7 @@
   },
   {
     "baseName": "扁鹊",
+    "id": "zhangyu-0146",
     "categoryDisplayName": "传世",
     "faction": "天下共识",
     "rowDisplayName": "朝堂",
@@ -65,6 +69,7 @@
   },
   {
     "baseName": "西施",
+    "id": "zhangyu-0190",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -81,6 +86,7 @@
   },
   {
     "baseName": "鲁班",
+    "id": "zhangyu-0193",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -97,6 +103,7 @@
   },
   {
     "baseName": "徐霞客",
+    "id": "zhangyu-0191",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -113,6 +120,7 @@
   },
   {
     "baseName": "王昭君",
+    "id": "zhangyu-0200",
     "categoryDisplayName": "传世",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -129,6 +137,7 @@
   },
   {
     "baseName": "杨玉环",
+    "id": "zhangyu-0198",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -145,6 +154,7 @@
   },
   {
     "baseName": "貂蝉",
+    "id": "zhangyu-0201",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场",
@@ -161,6 +171,7 @@
   },
   {
     "baseName": "周瑜",
+    "id": "zhangyu-0150",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "朝堂",
@@ -177,6 +188,7 @@
   },
   {
     "baseName": "鬼谷子",
+    "id": "zhangyu-0202",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "文脉",
@@ -193,6 +205,12 @@
   },
   {
     "baseName": "孟尝君",
+    "id": "zhangyu-0203",
+    "ids": [
+      "zhangyu-0203",
+      "zhangyu-0204",
+      "zhangyu-0205"
+    ],
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "朝堂",
@@ -209,6 +227,7 @@
   },
   {
     "baseName": "荆轲",
+    "id": "zhangyu-0206",
     "categoryDisplayName": "人物",
     "faction": "天下共识",
     "rowDisplayName": "疆场 / 朝堂",
@@ -225,6 +244,12 @@
   },
   {
     "baseName": "边患四起",
+    "id": "zhangyu-0165",
+    "ids": [
+      "zhangyu-0165",
+      "zhangyu-0166",
+      "zhangyu-0167"
+    ],
     "categoryDisplayName": "时局",
     "faction": "天下共识",
     "rowDisplayName": "",
@@ -241,6 +266,12 @@
   },
   {
     "baseName": "党争迷局",
+    "id": "zhangyu-0168",
+    "ids": [
+      "zhangyu-0168",
+      "zhangyu-0169",
+      "zhangyu-0170"
+    ],
     "categoryDisplayName": "时局",
     "faction": "天下共识",
     "rowDisplayName": "",
@@ -257,6 +288,12 @@
   },
   {
     "baseName": "典籍散佚",
+    "id": "zhangyu-0171",
+    "ids": [
+      "zhangyu-0171",
+      "zhangyu-0172",
+      "zhangyu-0173"
+    ],
     "categoryDisplayName": "时局",
     "faction": "天下共识",
     "rowDisplayName": "",
@@ -273,6 +310,12 @@
   },
   {
     "baseName": "时代洪流",
+    "id": "zhangyu-0174",
+    "ids": [
+      "zhangyu-0174",
+      "zhangyu-0175",
+      "zhangyu-0207"
+    ],
     "categoryDisplayName": "时局",
     "faction": "天下共识",
     "rowDisplayName": "",
@@ -289,6 +332,12 @@
   },
   {
     "baseName": "拨云见日",
+    "id": "zhangyu-0176",
+    "ids": [
+      "zhangyu-0176",
+      "zhangyu-0177",
+      "zhangyu-0178"
+    ],
     "categoryDisplayName": "时局",
     "faction": "天下共识",
     "rowDisplayName": "",
@@ -305,6 +354,12 @@
   },
   {
     "baseName": "战鼓齐鸣",
+    "id": "zhangyu-0179",
+    "ids": [
+      "zhangyu-0179",
+      "zhangyu-0180",
+      "zhangyu-0181"
+    ],
     "categoryDisplayName": "谋略",
     "faction": "天下共识",
     "rowDisplayName": "",
@@ -321,6 +376,12 @@
   },
   {
     "baseName": "请辞归隐",
+    "id": "zhangyu-0185",
+    "ids": [
+      "zhangyu-0185",
+      "zhangyu-0186",
+      "zhangyu-0187"
+    ],
     "categoryDisplayName": "谋略",
     "faction": "天下共识",
     "rowDisplayName": "",
@@ -337,10 +398,16 @@
   },
   {
     "baseName": "釜底抽薪",
+    "id": "zhangyu-0182",
+    "ids": [
+      "zhangyu-0182",
+      "zhangyu-0183",
+      "zhangyu-0184"
+    ],
     "categoryDisplayName": "谋略",
     "faction": "天下共识",
     "rowDisplayName": "",
-    "abilityText": "奇策：摧毁场上最高战力的非传世人物。",
+    "abilityText": "奇策：摧毁双方场上当前战力最高的非传世人物。",
     "cardCount": 3,
     "strength": null,
     "gwentCardName": "Scorch",
@@ -353,6 +420,11 @@
   },
   {
     "baseName": "周勃",
+    "id": "zhangyu-0208",
+    "ids": [
+      "zhangyu-0208",
+      "zhangyu-0209"
+    ],
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -369,6 +441,13 @@
   },
   {
     "baseName": "曹参",
+    "id": "zhangyu-0022",
+    "ids": [
+      "zhangyu-0022",
+      "zhangyu-0210",
+      "zhangyu-0211",
+      "zhangyu-0212"
+    ],
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -385,6 +464,12 @@
   },
   {
     "baseName": "赵普",
+    "id": "zhangyu-0043",
+    "ids": [
+      "zhangyu-0043",
+      "zhangyu-0213",
+      "zhangyu-0214"
+    ],
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -401,6 +486,7 @@
   },
   {
     "baseName": "樊哙",
+    "id": "zhangyu-0215",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -417,6 +503,7 @@
   },
   {
     "baseName": "马援",
+    "id": "zhangyu-0216",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "朝堂",
@@ -433,6 +520,12 @@
   },
   {
     "baseName": "蒙恬",
+    "id": "zhangyu-0217",
+    "ids": [
+      "zhangyu-0217",
+      "zhangyu-0218",
+      "zhangyu-0219"
+    ],
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -449,6 +542,7 @@
   },
   {
     "baseName": "上官婉儿",
+    "id": "zhangyu-0220",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "朝堂",
@@ -465,6 +559,7 @@
   },
   {
     "baseName": "秦琼",
+    "id": "zhangyu-0221",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -481,6 +576,7 @@
   },
   {
     "baseName": "杨业",
+    "id": "zhangyu-0222",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -497,6 +593,7 @@
   },
   {
     "baseName": "蔺相如",
+    "id": "zhangyu-0223",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -513,6 +610,7 @@
   },
   {
     "baseName": "班昭",
+    "id": "zhangyu-0224",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "朝堂",
@@ -529,6 +627,7 @@
   },
   {
     "baseName": "华佗",
+    "id": "zhangyu-0145",
     "categoryDisplayName": "传世",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -545,6 +644,7 @@
   },
   {
     "baseName": "刘伯温",
+    "id": "zhangyu-0225",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "朝堂",
@@ -561,6 +661,7 @@
   },
   {
     "baseName": "房玄龄",
+    "id": "zhangyu-0141",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -577,6 +678,7 @@
   },
   {
     "baseName": "李时珍",
+    "id": "zhangyu-0226",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -593,6 +695,11 @@
   },
   {
     "baseName": "魏征",
+    "id": "zhangyu-0153",
+    "ids": [
+      "zhangyu-0153",
+      "zhangyu-0227"
+    ],
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -609,6 +716,11 @@
   },
   {
     "baseName": "长孙无忌",
+    "id": "zhangyu-0137",
+    "ids": [
+      "zhangyu-0137",
+      "zhangyu-0228"
+    ],
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -625,6 +737,12 @@
   },
   {
     "baseName": "李广",
+    "id": "zhangyu-0229",
+    "ids": [
+      "zhangyu-0229",
+      "zhangyu-0230",
+      "zhangyu-0231"
+    ],
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "朝堂",
@@ -641,6 +759,7 @@
   },
   {
     "baseName": "白起",
+    "id": "zhangyu-0232",
     "categoryDisplayName": "传世",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -657,6 +776,7 @@
   },
   {
     "baseName": "霍去病",
+    "id": "zhangyu-0026",
     "categoryDisplayName": "传世",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -673,6 +793,7 @@
   },
   {
     "baseName": "萧何",
+    "id": "zhangyu-0233",
     "categoryDisplayName": "传世",
     "faction": "开国群雄",
     "rowDisplayName": "朝堂",
@@ -689,6 +810,7 @@
   },
   {
     "baseName": "马钧",
+    "id": "zhangyu-0234",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -705,6 +827,7 @@
   },
   {
     "baseName": "张骞",
+    "id": "zhangyu-0053",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -721,6 +844,7 @@
   },
   {
     "baseName": "苏武",
+    "id": "zhangyu-0235",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "文脉",
@@ -737,6 +861,7 @@
   },
   {
     "baseName": "卫青",
+    "id": "zhangyu-0036",
     "categoryDisplayName": "传世",
     "faction": "开国群雄",
     "rowDisplayName": "疆场",
@@ -753,6 +878,7 @@
   },
   {
     "baseName": "谢道韫",
+    "id": "zhangyu-0236",
     "categoryDisplayName": "人物",
     "faction": "开国群雄",
     "rowDisplayName": "朝堂",
@@ -769,6 +895,7 @@
   },
   {
     "baseName": "赵高",
+    "id": "zhangyu-0084",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -785,6 +912,7 @@
   },
   {
     "baseName": "吕不韦",
+    "id": "zhangyu-0051",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -801,6 +929,11 @@
   },
   {
     "baseName": "廉颇",
+    "id": "zhangyu-0237",
+    "ids": [
+      "zhangyu-0237",
+      "zhangyu-0238"
+    ],
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -817,6 +950,7 @@
   },
   {
     "baseName": "李斯",
+    "id": "zhangyu-0052",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -833,6 +967,7 @@
   },
   {
     "baseName": "吕雉",
+    "id": "zhangyu-0239",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -849,6 +984,11 @@
   },
   {
     "baseName": "淳于意",
+    "id": "zhangyu-0240",
+    "ids": [
+      "zhangyu-0240",
+      "zhangyu-0241"
+    ],
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -865,6 +1005,7 @@
   },
   {
     "baseName": "贾诩",
+    "id": "zhangyu-0049",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -881,6 +1022,7 @@
   },
   {
     "baseName": "商鞅",
+    "id": "zhangyu-0242",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -897,6 +1039,13 @@
   },
   {
     "baseName": "平原君",
+    "id": "zhangyu-0243",
+    "ids": [
+      "zhangyu-0243",
+      "zhangyu-0244",
+      "zhangyu-0245",
+      "zhangyu-0246"
+    ],
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -913,6 +1062,7 @@
   },
   {
     "baseName": "韩信",
+    "id": "zhangyu-0023",
     "categoryDisplayName": "传世",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -929,6 +1079,7 @@
   },
   {
     "baseName": "张良",
+    "id": "zhangyu-0024",
     "categoryDisplayName": "传世",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -945,6 +1096,7 @@
   },
   {
     "baseName": "赵括",
+    "id": "zhangyu-0247",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -961,6 +1113,7 @@
   },
   {
     "baseName": "陆逊",
+    "id": "zhangyu-0059",
     "categoryDisplayName": "传世",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -977,6 +1130,12 @@
   },
   {
     "baseName": "毛遂",
+    "id": "zhangyu-0248",
+    "ids": [
+      "zhangyu-0248",
+      "zhangyu-0249",
+      "zhangyu-0250"
+    ],
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -993,6 +1152,7 @@
   },
   {
     "baseName": "伍子胥",
+    "id": "zhangyu-0251",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -1009,6 +1169,7 @@
   },
   {
     "baseName": "李牧",
+    "id": "zhangyu-0252",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -1025,6 +1186,7 @@
   },
   {
     "baseName": "乐毅",
+    "id": "zhangyu-0073",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -1041,6 +1203,7 @@
   },
   {
     "baseName": "邹忌",
+    "id": "zhangyu-0253",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -1057,6 +1220,7 @@
   },
   {
     "baseName": "班超",
+    "id": "zhangyu-0254",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -1073,6 +1237,7 @@
   },
   {
     "baseName": "李冰",
+    "id": "zhangyu-0255",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -1089,6 +1254,7 @@
   },
   {
     "baseName": "葛洪",
+    "id": "zhangyu-0142",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -1105,6 +1271,7 @@
   },
   {
     "baseName": "文成公主",
+    "id": "zhangyu-0054",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -1121,6 +1288,7 @@
   },
   {
     "baseName": "晏婴",
+    "id": "zhangyu-0256",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -1137,6 +1305,7 @@
   },
   {
     "baseName": "李靖",
+    "id": "zhangyu-0055",
     "categoryDisplayName": "传世",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -1153,6 +1322,7 @@
   },
   {
     "baseName": "郭嘉",
+    "id": "zhangyu-0056",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "朝堂",
@@ -1169,6 +1339,7 @@
   },
   {
     "baseName": "苏秦",
+    "id": "zhangyu-0047",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -1185,6 +1356,7 @@
   },
   {
     "baseName": "项燕",
+    "id": "zhangyu-0257",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -1201,6 +1373,11 @@
   },
   {
     "baseName": "公孙衍",
+    "id": "zhangyu-0075",
+    "ids": [
+      "zhangyu-0075",
+      "zhangyu-0258"
+    ],
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "疆场",
@@ -1217,6 +1394,7 @@
   },
   {
     "baseName": "尉缭",
+    "id": "zhangyu-0050",
     "categoryDisplayName": "人物",
     "faction": "纵横权谋",
     "rowDisplayName": "文脉",
@@ -1233,6 +1411,7 @@
   },
   {
     "baseName": "苏轼",
+    "id": "zhangyu-0101",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1249,6 +1428,7 @@
   },
   {
     "baseName": "公孙龙",
+    "id": "zhangyu-0259",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1265,6 +1445,7 @@
   },
   {
     "baseName": "墨子",
+    "id": "zhangyu-0011",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场",
@@ -1281,6 +1462,7 @@
   },
   {
     "baseName": "贾谊",
+    "id": "zhangyu-0260",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1297,6 +1479,12 @@
   },
   {
     "baseName": "孟子",
+    "id": "zhangyu-0079",
+    "ids": [
+      "zhangyu-0079",
+      "zhangyu-0261",
+      "zhangyu-0262"
+    ],
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1313,6 +1501,12 @@
   },
   {
     "baseName": "子路",
+    "id": "zhangyu-0263",
+    "ids": [
+      "zhangyu-0263",
+      "zhangyu-0264",
+      "zhangyu-0265"
+    ],
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场",
@@ -1329,6 +1523,7 @@
   },
   {
     "baseName": "李白",
+    "id": "zhangyu-0099",
     "categoryDisplayName": "传世",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1345,6 +1540,12 @@
   },
   {
     "baseName": "李清照",
+    "id": "zhangyu-0266",
+    "ids": [
+      "zhangyu-0266",
+      "zhangyu-0267",
+      "zhangyu-0268"
+    ],
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1361,6 +1562,7 @@
   },
   {
     "baseName": "庄子",
+    "id": "zhangyu-0082",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1377,6 +1579,12 @@
   },
   {
     "baseName": "司马光",
+    "id": "zhangyu-0144",
+    "ids": [
+      "zhangyu-0144",
+      "zhangyu-0269",
+      "zhangyu-0270"
+    ],
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1393,6 +1601,12 @@
   },
   {
     "baseName": "子贡",
+    "id": "zhangyu-0271",
+    "ids": [
+      "zhangyu-0271",
+      "zhangyu-0272",
+      "zhangyu-0273"
+    ],
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场",
@@ -1409,6 +1623,7 @@
   },
   {
     "baseName": "蔡文姬",
+    "id": "zhangyu-0274",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1425,6 +1640,7 @@
   },
   {
     "baseName": "孙子",
+    "id": "zhangyu-0086",
     "categoryDisplayName": "传世",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1441,6 +1657,7 @@
   },
   {
     "baseName": "韩非",
+    "id": "zhangyu-0012",
     "categoryDisplayName": "传世",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场",
@@ -1457,6 +1674,14 @@
   },
   {
     "baseName": "曾子",
+    "id": "zhangyu-0275",
+    "ids": [
+      "zhangyu-0275",
+      "zhangyu-0276",
+      "zhangyu-0277",
+      "zhangyu-0278",
+      "zhangyu-0279"
+    ],
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场",
@@ -1473,6 +1698,7 @@
   },
   {
     "baseName": "杜甫",
+    "id": "zhangyu-0100",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1489,6 +1715,7 @@
   },
   {
     "baseName": "列子",
+    "id": "zhangyu-0081",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1505,6 +1732,7 @@
   },
   {
     "baseName": "屈原",
+    "id": "zhangyu-0088",
     "categoryDisplayName": "传世",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1521,6 +1749,7 @@
   },
   {
     "baseName": "荀子",
+    "id": "zhangyu-0080",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1537,6 +1766,7 @@
   },
   {
     "baseName": "朱熹",
+    "id": "zhangyu-0089",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "朝堂",
@@ -1553,6 +1783,11 @@
   },
   {
     "baseName": "顾炎武",
+    "id": "zhangyu-0104",
+    "ids": [
+      "zhangyu-0104",
+      "zhangyu-0280"
+    ],
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1569,6 +1804,7 @@
   },
   {
     "baseName": "颜回",
+    "id": "zhangyu-0078",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1585,6 +1821,7 @@
   },
   {
     "baseName": "田单",
+    "id": "zhangyu-0085",
     "categoryDisplayName": "人物",
     "faction": "百家争鸣",
     "rowDisplayName": "文脉",
@@ -1601,6 +1838,12 @@
   },
   {
     "baseName": "程咬金",
+    "id": "zhangyu-0281",
+    "ids": [
+      "zhangyu-0281",
+      "zhangyu-0282",
+      "zhangyu-0283"
+    ],
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1617,6 +1860,7 @@
   },
   {
     "baseName": "李密",
+    "id": "zhangyu-0284",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "文脉",
@@ -1636,6 +1880,7 @@
   },
   {
     "baseName": "武松",
+    "id": "zhangyu-0285",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1652,6 +1897,7 @@
   },
   {
     "baseName": "孙尚香",
+    "id": "zhangyu-0286",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1668,6 +1914,7 @@
   },
   {
     "baseName": "红拂女",
+    "id": "zhangyu-0287",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "朝堂",
@@ -1684,6 +1931,7 @@
   },
   {
     "baseName": "关羽",
+    "id": "zhangyu-0111",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1700,6 +1948,7 @@
   },
   {
     "baseName": "张飞",
+    "id": "zhangyu-0112",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1716,6 +1965,7 @@
   },
   {
     "baseName": "刘备",
+    "id": "zhangyu-0113",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1732,6 +1982,7 @@
   },
   {
     "baseName": "吕布",
+    "id": "zhangyu-0107",
     "categoryDisplayName": "传世",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1748,6 +1999,7 @@
   },
   {
     "baseName": "公孙胜",
+    "id": "zhangyu-0288",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "文脉",
@@ -1764,6 +2016,7 @@
   },
   {
     "baseName": "宋江",
+    "id": "zhangyu-0289",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "朝堂",
@@ -1780,6 +2033,7 @@
   },
   {
     "baseName": "典韦",
+    "id": "zhangyu-0290",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1796,6 +2050,7 @@
   },
   {
     "baseName": "吴用",
+    "id": "zhangyu-0060",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "文脉",
@@ -1812,6 +2067,7 @@
   },
   {
     "baseName": "窦建德",
+    "id": "zhangyu-0108",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1828,6 +2084,7 @@
   },
   {
     "baseName": "常遇春",
+    "id": "zhangyu-0291",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1844,6 +2101,7 @@
   },
   {
     "baseName": "杨再兴",
+    "id": "zhangyu-0292",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1860,6 +2118,7 @@
   },
   {
     "baseName": "陆秀夫",
+    "id": "zhangyu-0133",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "朝堂",
@@ -1876,6 +2135,12 @@
   },
   {
     "baseName": "张角",
+    "id": "zhangyu-0120",
+    "ids": [
+      "zhangyu-0120",
+      "zhangyu-0293",
+      "zhangyu-0294"
+    ],
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1892,6 +2157,7 @@
   },
   {
     "baseName": "冼夫人",
+    "id": "zhangyu-0295",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "朝堂",
@@ -1908,6 +2174,7 @@
   },
   {
     "baseName": "马超",
+    "id": "zhangyu-0296",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1924,6 +2191,7 @@
   },
   {
     "baseName": "梁红玉",
+    "id": "zhangyu-0115",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1940,6 +2208,7 @@
   },
   {
     "baseName": "桓温",
+    "id": "zhangyu-0297",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "文脉",
@@ -1956,6 +2225,7 @@
   },
   {
     "baseName": "项羽",
+    "id": "zhangyu-0013",
     "categoryDisplayName": "传世",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -1972,6 +2242,7 @@
   },
   {
     "baseName": "穆桂英",
+    "id": "zhangyu-0042",
     "categoryDisplayName": "传世",
     "faction": "草莽星火",
     "rowDisplayName": "疆场 / 朝堂",
@@ -1988,6 +2259,7 @@
   },
   {
     "baseName": "赵云",
+    "id": "zhangyu-0298",
     "categoryDisplayName": "传世",
     "faction": "草莽星火",
     "rowDisplayName": "朝堂",
@@ -2004,6 +2276,12 @@
   },
   {
     "baseName": "李逵",
+    "id": "zhangyu-0299",
+    "ids": [
+      "zhangyu-0299",
+      "zhangyu-0300",
+      "zhangyu-0301"
+    ],
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -2020,6 +2298,7 @@
   },
   {
     "baseName": "吕母",
+    "id": "zhangyu-0302",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -2036,6 +2315,7 @@
   },
   {
     "baseName": "陈胜",
+    "id": "zhangyu-0015",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -2061,6 +2341,7 @@
   },
   {
     "baseName": "吴广",
+    "id": "zhangyu-0109",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -2086,6 +2367,7 @@
   },
   {
     "baseName": "彭越",
+    "id": "zhangyu-0303",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -2111,6 +2393,7 @@
   },
   {
     "baseName": "项梁",
+    "id": "zhangyu-0304",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -2136,6 +2419,7 @@
   },
   {
     "baseName": "刘秀",
+    "id": "zhangyu-0014",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -2161,6 +2445,7 @@
   },
   {
     "baseName": "李自成",
+    "id": "zhangyu-0119",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "疆场",
@@ -2177,6 +2462,7 @@
   },
   {
     "baseName": "单雄信",
+    "id": "zhangyu-0118",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "朝堂",
@@ -2193,6 +2479,7 @@
   },
   {
     "baseName": "方腊",
+    "id": "zhangyu-0305",
     "categoryDisplayName": "人物",
     "faction": "草莽星火",
     "rowDisplayName": "朝堂",
@@ -2209,6 +2496,7 @@
   },
   {
     "baseName": "勾践",
+    "id": "zhangyu-0132",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2225,6 +2513,7 @@
   },
   {
     "baseName": "孙思邈",
+    "id": "zhangyu-0143",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2241,6 +2530,7 @@
   },
   {
     "baseName": "狄青",
+    "id": "zhangyu-0306",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2257,6 +2547,7 @@
   },
   {
     "baseName": "岳飞",
+    "id": "zhangyu-0114",
     "categoryDisplayName": "传世",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2273,6 +2564,12 @@
   },
   {
     "baseName": "牛皋",
+    "id": "zhangyu-0307",
+    "ids": [
+      "zhangyu-0307",
+      "zhangyu-0308",
+      "zhangyu-0309"
+    ],
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2289,6 +2586,12 @@
   },
   {
     "baseName": "俞大猷",
+    "id": "zhangyu-0310",
+    "ids": [
+      "zhangyu-0310",
+      "zhangyu-0311",
+      "zhangyu-0312"
+    ],
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
@@ -2305,6 +2608,7 @@
   },
   {
     "baseName": "于谦",
+    "id": "zhangyu-0313",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
@@ -2321,6 +2625,12 @@
   },
   {
     "baseName": "岳家军",
+    "id": "zhangyu-0314",
+    "ids": [
+      "zhangyu-0314",
+      "zhangyu-0315",
+      "zhangyu-0316"
+    ],
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2337,6 +2647,7 @@
   },
   {
     "baseName": "郑和",
+    "id": "zhangyu-0317",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2353,6 +2664,7 @@
   },
   {
     "baseName": "欧冶子",
+    "id": "zhangyu-0318",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2369,6 +2681,7 @@
   },
   {
     "baseName": "李如松",
+    "id": "zhangyu-0037",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2385,6 +2698,7 @@
   },
   {
     "baseName": "文天祥",
+    "id": "zhangyu-0116",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "文脉",
@@ -2401,6 +2715,7 @@
   },
   {
     "baseName": "范蠡",
+    "id": "zhangyu-0319",
     "categoryDisplayName": "传世",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
@@ -2417,6 +2732,7 @@
   },
   {
     "baseName": "戚继光",
+    "id": "zhangyu-0320",
     "categoryDisplayName": "传世",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
@@ -2433,6 +2749,7 @@
   },
   {
     "baseName": "祖冲之",
+    "id": "zhangyu-0321",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "文脉",
@@ -2449,6 +2766,7 @@
   },
   {
     "baseName": "诸葛亮",
+    "id": "zhangyu-0322",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2465,6 +2783,12 @@
   },
   {
     "baseName": "王安石",
+    "id": "zhangyu-0148",
+    "ids": [
+      "zhangyu-0148",
+      "zhangyu-0323",
+      "zhangyu-0324"
+    ],
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
@@ -2481,6 +2805,7 @@
   },
   {
     "baseName": "辛弃疾",
+    "id": "zhangyu-0117",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2497,6 +2822,12 @@
   },
   {
     "baseName": "卧薪尝胆",
+    "id": "zhangyu-0188",
+    "ids": [
+      "zhangyu-0188",
+      "zhangyu-0189",
+      "zhangyu-0325"
+    ],
     "categoryDisplayName": "谋略",
     "faction": "遗策复兴",
     "rowDisplayName": "",
@@ -2513,6 +2844,7 @@
   },
   {
     "baseName": "徐光启",
+    "id": "zhangyu-0326",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场 / 朝堂",
@@ -2529,6 +2861,7 @@
   },
   {
     "baseName": "高拱",
+    "id": "zhangyu-0147",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2545,6 +2878,7 @@
   },
   {
     "baseName": "海瑞",
+    "id": "zhangyu-0199",
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "疆场",
@@ -2561,6 +2895,12 @@
   },
   {
     "baseName": "宋应星",
+    "id": "zhangyu-0327",
+    "ids": [
+      "zhangyu-0327",
+      "zhangyu-0328",
+      "zhangyu-0329"
+    ],
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "文脉",
@@ -2577,6 +2917,12 @@
   },
   {
     "baseName": "文种",
+    "id": "zhangyu-0134",
+    "ids": [
+      "zhangyu-0134",
+      "zhangyu-0330",
+      "zhangyu-0331"
+    ],
     "categoryDisplayName": "人物",
     "faction": "遗策复兴",
     "rowDisplayName": "朝堂",
@@ -2593,6 +2939,7 @@
   },
   {
     "baseName": "刘邦",
+    "id": "zhangyu-0001",
     "categoryDisplayName": "主将",
     "faction": "开国群雄",
     "rowDisplayName": "",
@@ -2609,6 +2956,7 @@
   },
   {
     "baseName": "李世民",
+    "id": "zhangyu-0002",
     "categoryDisplayName": "主将",
     "faction": "开国群雄",
     "rowDisplayName": "",
@@ -2625,6 +2973,7 @@
   },
   {
     "baseName": "秦穆公",
+    "id": "zhangyu-0003",
     "categoryDisplayName": "主将",
     "faction": "开国群雄",
     "rowDisplayName": "",
@@ -2641,6 +2990,7 @@
   },
   {
     "baseName": "赵匡胤",
+    "id": "zhangyu-0004",
     "categoryDisplayName": "主将",
     "faction": "开国群雄",
     "rowDisplayName": "",
@@ -2657,6 +3007,7 @@
   },
   {
     "baseName": "刘彻",
+    "id": "zhangyu-0332",
     "categoryDisplayName": "主将",
     "faction": "开国群雄",
     "rowDisplayName": "",
@@ -2673,6 +3024,7 @@
   },
   {
     "baseName": "张仪",
+    "id": "zhangyu-0006",
     "categoryDisplayName": "主将",
     "faction": "纵横权谋",
     "rowDisplayName": "",
@@ -2689,6 +3041,7 @@
   },
   {
     "baseName": "曹操",
+    "id": "zhangyu-0007",
     "categoryDisplayName": "主将",
     "faction": "纵横权谋",
     "rowDisplayName": "",
@@ -2705,6 +3058,7 @@
   },
   {
     "baseName": "秦昭襄王",
+    "id": "zhangyu-0333",
     "categoryDisplayName": "主将",
     "faction": "纵横权谋",
     "rowDisplayName": "",
@@ -2721,6 +3075,7 @@
   },
   {
     "baseName": "管仲",
+    "id": "zhangyu-0005",
     "categoryDisplayName": "主将",
     "faction": "纵横权谋",
     "rowDisplayName": "",
@@ -2737,6 +3092,7 @@
   },
   {
     "baseName": "司马懿",
+    "id": "zhangyu-0008",
     "categoryDisplayName": "主将",
     "faction": "纵横权谋",
     "rowDisplayName": "",
@@ -2753,6 +3109,7 @@
   },
   {
     "baseName": "孔子",
+    "id": "zhangyu-0009",
     "categoryDisplayName": "主将",
     "faction": "百家争鸣",
     "rowDisplayName": "",
@@ -2769,6 +3126,7 @@
   },
   {
     "baseName": "惠施",
+    "id": "zhangyu-0334",
     "categoryDisplayName": "主将",
     "faction": "百家争鸣",
     "rowDisplayName": "",
@@ -2785,6 +3143,7 @@
   },
   {
     "baseName": "老子",
+    "id": "zhangyu-0010",
     "categoryDisplayName": "主将",
     "faction": "百家争鸣",
     "rowDisplayName": "",
@@ -2801,6 +3160,7 @@
   },
   {
     "baseName": "吴起",
+    "id": "zhangyu-0335",
     "categoryDisplayName": "主将",
     "faction": "百家争鸣",
     "rowDisplayName": "",
@@ -2817,6 +3177,7 @@
   },
   {
     "baseName": "董仲舒",
+    "id": "zhangyu-0336",
     "categoryDisplayName": "主将",
     "faction": "百家争鸣",
     "rowDisplayName": "",
@@ -2833,6 +3194,7 @@
   },
   {
     "baseName": "朱元璋",
+    "id": "zhangyu-0337",
     "categoryDisplayName": "主将",
     "faction": "草莽星火",
     "rowDisplayName": "",
@@ -2849,6 +3211,7 @@
   },
   {
     "baseName": "刘裕",
+    "id": "zhangyu-0338",
     "categoryDisplayName": "主将",
     "faction": "草莽星火",
     "rowDisplayName": "",
@@ -2865,6 +3228,7 @@
   },
   {
     "baseName": "石勒",
+    "id": "zhangyu-0339",
     "categoryDisplayName": "主将",
     "faction": "草莽星火",
     "rowDisplayName": "",
@@ -2881,6 +3245,7 @@
   },
   {
     "baseName": "黄巢",
+    "id": "zhangyu-0016",
     "categoryDisplayName": "主将",
     "faction": "草莽星火",
     "rowDisplayName": "",
@@ -2897,6 +3262,7 @@
   },
   {
     "baseName": "朱温",
+    "id": "zhangyu-0340",
     "categoryDisplayName": "主将",
     "faction": "草莽星火",
     "rowDisplayName": "",
@@ -2913,6 +3279,7 @@
   },
   {
     "baseName": "司马迁",
+    "id": "zhangyu-0017",
     "categoryDisplayName": "主将",
     "faction": "遗策复兴",
     "rowDisplayName": "",
@@ -2929,6 +3296,7 @@
   },
   {
     "baseName": "张居正",
+    "id": "zhangyu-0018",
     "categoryDisplayName": "主将",
     "faction": "遗策复兴",
     "rowDisplayName": "",
